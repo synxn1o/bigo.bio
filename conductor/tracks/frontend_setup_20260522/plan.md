@@ -1,7 +1,7 @@
 # Implementation Plan - Set up the frontend framework and implement the 'Swiss Red' design system core
 
 ## Phase 1: Framework & Environment Setup
-- [ ] Task: Evaluate and Initialize Frontend Framework
+- [~] Task: Evaluate and Initialize Frontend Framework
     - [ ] Audit frameworks (Astro, Hono, Remix) for Cloudflare Workers compatibility and 3D library (Three.js) performance.
     - [ ] Initialize the project with Bun and configure `wrangler.jsonc`.
     - [ ] Verify "Hello World" deployment and test 3D rendering context (canvas initialization).

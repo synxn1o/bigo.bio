@@ -1,6 +1,25 @@
 {
-  "dependencies": {},
+  "name": "bigo-bio",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "astro": "^6.3.7"
+  },
   "devDependencies": {
-    "wrangler": "^4.92.0"
+    "@astrojs/cloudflare": "^13.5.4",
+    "@vitest/browser": "^4.1.7",
+    "jsdom": "^29.1.1",
+    "vitest": "^4.1.7",
+    "wrangler": "^4.94.0"
   }
 }
