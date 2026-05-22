@@ -32,6 +32,7 @@ This document summarizes key rules and best practices from the Google HTML/CSS S
 - **Leading `0`s:** Always include leading `0`s for decimal values (e.g., `font-size: 0.8em;`).
 - **Hexadecimal Notation:** Use 3-character hex notation where possible (e.g., `#fff`).
 - **`!important`:** Avoid using `!important`.
+- **Component Overrides:** Use CSS variables (e.g., `--comp-width`) to allow parent components to safely override child component styles without using `:global` or `!important`.
 
 ## 5. CSS Formatting Rules
 - **Declaration Order:** Alphabetize declarations within a rule.
