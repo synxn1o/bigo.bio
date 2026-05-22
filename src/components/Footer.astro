@@ -1,0 +1,79 @@
+---
+import { getTranslations } from '../i18n/utils';
+import NavLink from './NavLink.astro';
+
+interface Props {
+    lang: 'en' | 'zh';
+}
+
+const { lang } = Astro.props;
+const t = getTranslations(lang);
+---
+
+<footer class="footer outline">
+    <div class="grid-container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href={lang === 'en' ? '/' : '/zh/'} class="logo">BIGO BDA</a>
+                <p class="contact">{t('footer.contact')}</p>
+            </div>
+            
+            <div class="footer-links">
+                <NavLink href={lang === 'en' ? '/about' : '/zh/about'}>{t('nav.about')}</NavLink>
+                <NavLink href="#">{t('nav.blog')}</NavLink>
+                <NavLink href="#">{t('nav.studio')}</NavLink>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .footer {
+        margin-top: 6rem;
+        padding: 4rem 0;
+        background-color: var(--color-white);
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+    }
+
+    .footer-content {
+        grid-column: span var(--grid-columns);
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .footer-brand {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .logo {
+        font-weight: 800;
+        text-decoration: none;
+        color: var(--color-black);
+        font-size: 1.5rem;
+        letter-spacing: -0.02em;
+    }
+
+    .contact {
+        font-size: 0.875rem;
+        color: var(--color-grey-600);
+    }
+
+    .footer-links {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    @media (max-width: 640px) {
+        .footer-content {
+            flex-direction: column;
+        }
+    }
+</style>
