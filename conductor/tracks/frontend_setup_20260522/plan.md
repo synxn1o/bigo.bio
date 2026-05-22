@@ -5,7 +5,7 @@
     - [ ] Audit frameworks (Astro, Hono, Remix) for Cloudflare Workers compatibility and 3D library (Three.js) performance.
     - [ ] Initialize the project with Bun and configure `wrangler.jsonc`.
     - [ ] Verify "Hello World" deployment and test 3D rendering context (canvas initialization).
-- [~] Task: Implement Internationalization (i18n)
+- [x] Task: Implement Internationalization (i18n) fc63efe
     - [ ] Configure i18n framework for English (EN) and Simplified Chinese (CN).
     - [ ] Implement browser language detection logic.
     - [ ] Create translation bundles for initial landing page content.
