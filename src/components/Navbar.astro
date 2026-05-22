@@ -25,7 +25,7 @@ const t = getTranslations(lang);
 
             <div class="nav-actions">
                 <LanguageToggle lang={lang} />
-                <button id="mobile-toggle" class="mobile-only outline" aria-label="Toggle Menu">
+                <button id="mobile-toggle" type="button" class="mobile-only outline" aria-label="Toggle Menu">
                     <span class="hamburger-line"></span>
                     <span class="hamburger-line"></span>
                     <span class="hamburger-line"></span>
@@ -38,7 +38,7 @@ const t = getTranslations(lang);
 <div id="nav-overlay"></div>
 
 <div id="mobile-panel" class="outline">
-    <button id="close-panel" aria-label="Close Menu">✕</button>
+    <button id="close-panel" type="button" aria-label="Close Menu">✕</button>
     <div class="mobile-links">
         <NavLink href="#" class="mobile-nav-item">{t('nav.blog')}</NavLink>
         <NavLink href="#" class="mobile-nav-item">{t('nav.studio')}</NavLink>
@@ -167,13 +167,13 @@ const t = getTranslations(lang);
         gap: 1rem;
     }
 
-    :global(.mobile-nav-item.nav-link) {
-        width: 100% !important;
-        height: auto !important;
-        padding: 1rem !important;
-        font-size: 1.25rem !important;
-        justify-content: flex-start !important;
-        margin-left: 0 !important;
+    .mobile-nav-item {
+        --nav-link-width: 100%;
+        --nav-link-height: auto;
+        --nav-link-padding: 1rem;
+        --nav-link-justify: flex-start;
+        margin-left: 0;
+        font-size: 1.25rem;
     }
 
     .desktop-only { display: flex; }

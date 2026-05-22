@@ -26,7 +26,8 @@ describe('NavLink Component', () => {
     expect(content).toContain('var(--color-swiss-red)');
     expect(content).toContain('text-transform: uppercase;');
     expect(content).toContain('letter-spacing: 0.1em;');
-    expect(content).toContain('width: 160px;');
+    expect(content).toContain('width: var(--nav-link-width, 160px);');
+    expect(content).toContain('height: var(--nav-link-height, 40px);');
   });
 
   it('should have hover state styles', () => {
