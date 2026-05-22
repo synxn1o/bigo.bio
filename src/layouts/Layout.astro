@@ -1,0 +1,38 @@
+---
+import '../styles/global.css';
+import { getTranslations } from '../i18n/utils';
+
+interface Props {
+	title: string;
+    lang: 'en' | 'zh';
+}
+
+const { title, lang } = Astro.props;
+const t = getTranslations(lang);
+---
+
+<!doctype html>
+<html lang={lang}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+        <script>
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = (e.target as HTMLAnchorElement).getAttribute('href');
+                    if (href === '/zh/') {
+                        document.cookie = "preferred-lang=zh; path=/; max-age=31536000";
+                    } else if (href === '/') {
+                        document.cookie = "preferred-lang=en; path=/; max-age=31536000";
+                    }
+                });
+            });
+        </script>
+	</body>
+</html>

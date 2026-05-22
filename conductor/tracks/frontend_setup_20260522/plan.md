@@ -12,7 +12,7 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Framework & Environment Setup' (Protocol in workflow.md) 2dc735c
 
 ## Phase 2: "Swiss Red" Design System Foundation
-- [ ] Task: Implement Modular Grid System & Global Styles
+- [~] Task: Implement Modular Grid System & Global Styles
     - [ ] Define global CSS tokens (Swiss Red: `#FF0000` or defined HEX, Black: `#000000`, etc.).
     - [ ] Create a re-importable Grid Engine (e.g., CSS Grid layouts or utility classes).
     - [ ] Apply "No Radius" global reset and thin-line outline utility classes.

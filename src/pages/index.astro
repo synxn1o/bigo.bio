@@ -1,37 +1,24 @@
 ---
+import Layout from '../layouts/Layout.astro';
 import { getTranslations } from '../i18n/utils';
 
 const lang = 'en';
 const t = getTranslations(lang);
 ---
-<html lang={lang}>
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{t('site.title')}</title>
-	</head>
-	<body>
-		<nav>
+
+<Layout title={t('site.title')} lang={lang}>
+	<main class="grid-container">
+		<nav class="grid-item outline" style="margin-top: 1rem; padding: 1rem;">
 			<a href="/">{t('nav.blog')}</a>
 			<a href="/">{t('nav.studio')}</a>
             <a href="/zh/">中文</a>
 		</nav>
-		<h1>{t('hero.title')}</h1>
-        <p>{t('hero.subtitle')}</p>
-
-        <script>
-            document.querySelectorAll('nav a').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    const href = (e.target as HTMLAnchorElement).getAttribute('href');
-                    if (href === '/zh/') {
-                        document.cookie = "preferred-lang=zh; path=/; max-age=31536000";
-                    } else if (href === '/') {
-                        document.cookie = "preferred-lang=en; path=/; max-age=31536000";
-                    }
-                });
-            });
-        </script>
-	</body>
-</html>
+        <div class="grid-item" style="margin-top: 4rem;">
+		    <h1 class="text-swiss-red" style="font-size: 3.5rem; line-height: 1.1; font-weight: 800;">{t('hero.title')}</h1>
+            <p style="font-size: 1.25rem; margin-top: 1.5rem; max-width: 600px;">{t('hero.subtitle')}</p>
+            <button class="bg-swiss-red outline" style="margin-top: 2rem; padding: 1rem 2rem; font-weight: bold; cursor: pointer;">
+                GET STARTED
+            </button>
+        </div>
+	</main>
+</Layout>
