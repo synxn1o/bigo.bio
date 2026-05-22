@@ -1,6 +1,6 @@
 # Implementation Plan - Set up the frontend framework and implement the 'Swiss Red' design system core
 
-## Phase 1: Framework & Environment Setup
+## Phase 1: Framework & Environment Setup [checkpoint: 2dc735c]
 - [x] Task: Evaluate and Initialize Frontend Framework b82a101
     - [ ] Audit frameworks (Astro, Hono, Remix) for Cloudflare Workers compatibility and 3D library (Three.js) performance.
     - [ ] Initialize the project with Bun and configure `wrangler.jsonc`.
@@ -9,7 +9,7 @@
     - [ ] Configure i18n framework for English (EN) and Simplified Chinese (CN).
     - [ ] Implement browser language detection logic.
     - [ ] Create translation bundles for initial landing page content.
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Framework & Environment Setup' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Framework & Environment Setup' (Protocol in workflow.md) 2dc735c
 
 ## Phase 2: "Swiss Red" Design System Foundation
 - [ ] Task: Implement Modular Grid System & Global Styles
