@@ -19,6 +19,7 @@ const t = getTranslations(lang);
             </div>
             
             <div class="nav-links desktop-only">
+                <NavLink href={lang === 'en' ? '/about' : '/zh/about'}>{t('nav.about')}</NavLink>
                 <NavLink href="#">{t('nav.blog')}</NavLink>
                 <NavLink href="#">{t('nav.studio')}</NavLink>
             </div>
@@ -213,4 +214,6 @@ const t = getTranslations(lang);
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') toggleMenu(false);
     });
+</script>
+  });
 </script>
