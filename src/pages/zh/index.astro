@@ -11,7 +11,7 @@ const t = getTranslations(lang);
 	<main class="grid-container main-content">
         <Hero lang={lang} />
 
-        <div class="animation-wrapper grid-item outline">
+        <div class="animation-wrapper grid-item">
             <ParticleAnimation />
         </div>
 
@@ -43,7 +43,7 @@ const t = getTranslations(lang);
     }
 
     .animation-wrapper {
-        height: 300px;
+        height: clamp(300px, 50vh, 500px);
         position: relative;
         overflow: hidden;
         background: var(--color-grey-100);
