@@ -9,29 +9,32 @@ describe('Button Component', () => {
     expect(fs.existsSync(buttonPath)).toBe(true);
   });
 
-  it('should handle primary and outline variants', () => {
-    const content = fs.readFileSync(buttonPath, 'utf8');
-    expect(content).toContain("variant = 'primary'");
-    expect(content).toContain("variant === 'primary' ? \"bg-swiss-red text-white\" : \"bg-transparent text-black hover:bg-black hover:text-white\"");
-  });
-
   it('should render as an anchor if href is provided', () => {
     const content = fs.readFileSync(buttonPath, 'utf8');
     expect(content).toContain("const Element = href ? 'a' : 'button'");
-    expect(content).toContain("<Element href={href}");
+    expect(content).toContain("<Element");
+    expect(content).toContain("href={href}");
   });
 
   it('should include base classes for Swiss Red design system', () => {
     const content = fs.readFileSync(buttonPath, 'utf8');
-    expect(content).toContain("outline");
-    expect(content).toContain("font-bold");
-    expect(content).toContain("cursor-pointer");
-    expect(content).toContain("transition-all");
-    expect(content).toContain("uppercase");
+    expect(content).toContain('class:list={[\'btn\'');
+  });
+
+  it('should use scoped styles or CSS variables', () => {
+    const content = fs.readFileSync(buttonPath, 'utf8');
+    expect(content).toContain('<style>');
+    expect(content).toContain('var(--color-swiss-red)');
+    expect(content).toContain('var(--color-black)');
+  });
+
+  it('should handle primary and outline variants via CSS classes', () => {
+    const content = fs.readFileSync(buttonPath, 'utf8');
+    expect(content).toContain("variant === 'primary' ? 'btn-primary' : 'btn-outline'");
   });
 
   it('should support custom classes via class:list', () => {
     const content = fs.readFileSync(buttonPath, 'utf8');
-    expect(content).toContain("class:list={[baseClasses, variantClasses, className]}");
+    expect(content).toContain("class:list={['btn', variant === 'primary' ? 'btn-primary' : 'btn-outline', className]}");
   });
 });

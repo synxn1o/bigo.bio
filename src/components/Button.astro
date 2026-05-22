@@ -1,6 +1,6 @@
 ---
 interface Props {
-	variant?: 'primary' | 'outline';
+    variant?: 'primary' | 'outline';
     href?: string;
     class?: string;
 }
@@ -8,10 +8,51 @@ interface Props {
 const { variant = 'primary', href, class: className, ...rest } = Astro.props;
 
 const Element = href ? 'a' : 'button';
-const baseClasses = "outline font-bold cursor-pointer transition-all duration-200 py-3 px-6 text-base tracking-wider uppercase inline-flex items-center justify-center";
-const variantClasses = variant === 'primary' ? "bg-swiss-red text-white" : "bg-transparent text-black hover:bg-black hover:text-white";
 ---
 
-<Element href={href} class:list={[baseClasses, variantClasses, className]} {...rest}>
+<Element 
+    href={href} 
+    class:list={['btn', variant === 'primary' ? 'btn-primary' : 'btn-outline', className]} 
+    {...rest}
+>
     <slot />
 </Element>
+
+<style>
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: 1px solid var(--color-black);
+        background: none;
+        color: var(--color-black);
+        font-family: var(--font-family);
+    }
+
+    .btn-primary {
+        background-color: var(--color-swiss-red);
+        color: var(--color-white);
+    }
+
+    .btn-primary:hover {
+        background-color: var(--color-black);
+    }
+
+    .btn-outline:hover {
+        background-color: var(--color-black);
+        color: var(--color-white);
+    }
+
+    button.btn {
+        -webkit-appearance: none;
+        appearance: none;
+    }
+</style>
