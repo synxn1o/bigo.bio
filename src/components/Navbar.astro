@@ -1,5 +1,6 @@
 ---
 import { getTranslations } from '../i18n/utils';
+import NavLink from './NavLink.astro';
 import LanguageToggle from './LanguageToggle.astro';
 
 interface Props {
@@ -18,8 +19,8 @@ const t = getTranslations(lang);
             </div>
             
             <div class="nav-links desktop-only">
-                <a href="#" class="nav-item">{t('nav.blog')}</a>
-                <a href="#" class="nav-item">{t('nav.studio')}</a>
+                <NavLink href="#">{t('nav.blog')}</NavLink>
+                <NavLink href="#">{t('nav.studio')}</NavLink>
             </div>
 
             <div class="nav-actions">
@@ -39,8 +40,8 @@ const t = getTranslations(lang);
 <div id="mobile-panel" class="outline">
     <button id="close-panel" aria-label="Close Menu">✕</button>
     <div class="mobile-links">
-        <a href="#" class="mobile-nav-item">{t('nav.blog')}</a>
-        <a href="#" class="mobile-nav-item">{t('nav.studio')}</a>
+        <NavLink href="#" class="mobile-nav-item">{t('nav.blog')}</NavLink>
+        <NavLink href="#" class="mobile-nav-item">{t('nav.studio')}</NavLink>
     </div>
 </div>
 
@@ -83,28 +84,6 @@ const t = getTranslations(lang);
         display: flex;
         flex: 1;
         justify-content: center;
-    }
-
-    .nav-item {
-        text-decoration: none;
-        color: var(--color-black);
-        font-weight: 700;
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        transition: all 0.2s ease;
-        width: 160px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid var(--color-black);
-        margin-left: -1px;
-    }
-
-    .nav-item:hover {
-        background-color: var(--color-swiss-red);
-        color: var(--color-white);
     }
 
     .nav-actions {
@@ -188,25 +167,17 @@ const t = getTranslations(lang);
         gap: 1rem;
     }
 
-    .mobile-nav-item {
-        text-decoration: none;
-        color: var(--color-black);
-        font-weight: 700;
-        font-size: 1.25rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        padding: 1rem;
-        border: 1px solid var(--color-black);
+    :global(.mobile-nav-item.nav-link) {
+        width: 100% !important;
+        height: auto !important;
+        padding: 1rem !important;
+        font-size: 1.25rem !important;
+        justify-content: flex-start !important;
+        margin-left: 0 !important;
     }
 
     .desktop-only { display: flex; }
     .mobile-only { display: none; }
-
-    @media (max-width: 1024px) {
-        .nav-item {
-            width: 120px;
-        }
-    }
 
     @media (max-width: 768px) {
         .desktop-only { display: none; }

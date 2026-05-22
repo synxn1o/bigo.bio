@@ -24,15 +24,5 @@ const t = getTranslations(lang);
 	<body>
         <Navbar lang={lang} />
 		<slot />
-        <script>
-            document.querySelectorAll('.lang-link').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    const lang = (e.currentTarget as HTMLElement).getAttribute('data-lang');
-                    if (lang) {
-                        document.cookie = `preferred-lang=${lang}; path=/; max-age=31536000`;
-                    }
-                });
-            });
-        </script>
 	</body>
 </html>

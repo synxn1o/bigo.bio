@@ -7,9 +7,9 @@ const { lang } = Astro.props;
 ---
 
 <div class="lang-toggle outline">
-    <a href="/" class={`lang-link ${lang === 'en' ? 'active' : ''}`} data-lang="en">EN</a>
+    <a href="/" class={`lang-link ${lang === 'en' ? 'active' : ''}`} data-lang="en" aria-current={lang === 'en' ? 'page' : undefined}>EN</a>
     <span class="separator"></span>
-    <a href="/zh/" class={`lang-link ${lang === 'zh' ? 'active' : ''}`} data-lang="zh">中文</a>
+    <a href="/zh/" class={`lang-link ${lang === 'zh' ? 'active' : ''}`} data-lang="zh" aria-current={lang === 'zh' ? 'page' : undefined}>中文</a>
 </div>
 
 <style>
