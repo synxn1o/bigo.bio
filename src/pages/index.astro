@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ParticleAnimation from '../components/ParticleAnimation.astro';
 import { getTranslations } from '../i18n/utils';
 
 const lang = 'en';
@@ -7,19 +8,23 @@ const t = getTranslations(lang);
 ---
 
 <Layout title={t('site.title')} lang={lang}>
-	<main class="grid-container">
-        <div class="grid-item" style="margin-top: 10rem;">
-		    <h1 class="text-swiss-red" style="font-size: 3.5rem; line-height: 1.1; font-weight: 800; max-width: 800px;">{t('hero.title')}</h1>
-            <p style="font-size: 1.25rem; margin-top: 2rem; max-width: 600px; color: var(--color-grey-800);">{t('hero.subtitle')}</p>
-            
-            <div style="margin-top: 3rem; display: flex; gap: 1rem;">
-                <button class="bg-swiss-red outline" style="padding: 1.25rem 2.5rem; font-weight: 800; cursor: pointer; letter-spacing: 0.05em; font-size: 1rem;">
-                    GET STARTED
-                </button>
-                <button class="outline" style="padding: 1.25rem 2.5rem; font-weight: 800; cursor: pointer; letter-spacing: 0.05em; font-size: 1rem; background: transparent;">
-                    LEARN MORE
-                </button>
+	<main class="grid-container" style="padding-bottom: 4rem;">
+        <div class="grid-item" style="margin-top: 10rem; display: flex; flex-direction: column; gap: 4rem;">
+            <div style="display: flex; flex-direction: column; gap: 2rem;">
+		        <h1 class="text-swiss-red" style="font-size: 3.5rem; line-height: 1.1; font-weight: 800; max-width: 800px;">{t('hero.title')}</h1>
+                <p style="font-size: 1.25rem; max-width: 600px; color: var(--color-grey-800);">{t('hero.subtitle')}</p>
+                
+                <div style="display: flex; gap: 1rem;">
+                    <button class="bg-swiss-red outline" style="padding: 1.25rem 2.5rem; font-weight: 800; cursor: pointer; letter-spacing: 0.05em; font-size: 1rem;">
+                        GET STARTED
+                    </button>
+                    <button class="outline" style="padding: 1.25rem 2.5rem; font-weight: 800; cursor: pointer; letter-spacing: 0.05em; font-size: 1rem; background: transparent;">
+                        LEARN MORE
+                    </button>
+                </div>
             </div>
+
+            <ParticleAnimation />
         </div>
 	</main>
 </Layout>
