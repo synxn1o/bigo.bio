@@ -37,4 +37,28 @@ describe('Button Component', () => {
     const content = fs.readFileSync(buttonPath, 'utf8');
     expect(content).toContain("class:list={['btn', variant === 'primary' ? 'btn-primary' : 'btn-outline', className]}");
   });
+
+  it('should include :focus-visible styles for accessibility', () => {
+    const content = fs.readFileSync(buttonPath, 'utf8');
+    expect(content).toContain('.btn:focus-visible');
+    expect(content).toContain('outline: 2px solid var(--color-swiss-red)');
+  });
+
+  it('should ensure btn-primary hover border color consistency', () => {
+    const content = fs.readFileSync(buttonPath, 'utf8');
+    expect(content).toContain('.btn-primary:hover');
+    expect(content).toContain('border-color: var(--color-black)');
+  });
+
+  it('should default to type="button" for <button> elements', () => {
+    const content = fs.readFileSync(buttonPath, 'utf8');
+    expect(content).toContain("type = 'button'");
+    expect(content).toContain('type={href ? undefined : type}');
+  });
+
+  it('should prevent href leakage to <button> elements', () => {
+    const content = fs.readFileSync(buttonPath, 'utf8');
+    expect(content).toContain('href={href}');
+    expect(content).toContain("const Element = href ? 'a' : 'button'");
+  });
 });

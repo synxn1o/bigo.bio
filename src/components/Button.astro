@@ -3,15 +3,17 @@ interface Props {
     variant?: 'primary' | 'outline';
     href?: string;
     class?: string;
+    type?: 'button' | 'submit' | 'reset';
 }
 
-const { variant = 'primary', href, class: className, ...rest } = Astro.props;
+const { variant = 'primary', href, class: className, type = 'button', ...rest } = Astro.props;
 
 const Element = href ? 'a' : 'button';
 ---
 
 <Element 
     href={href} 
+    type={href ? undefined : type}
     class:list={['btn', variant === 'primary' ? 'btn-primary' : 'btn-outline', className]} 
     {...rest}
 >
@@ -37,6 +39,11 @@ const Element = href ? 'a' : 'button';
         font-family: var(--font-family);
     }
 
+    .btn:focus-visible {
+        outline: 2px solid var(--color-swiss-red);
+        outline-offset: 2px;
+    }
+
     .btn-primary {
         background-color: var(--color-swiss-red);
         color: var(--color-white);
@@ -44,6 +51,7 @@ const Element = href ? 'a' : 'button';
 
     .btn-primary:hover {
         background-color: var(--color-black);
+        border-color: var(--color-black);
     }
 
     .btn-outline:hover {
