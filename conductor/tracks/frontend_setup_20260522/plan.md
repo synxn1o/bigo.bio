@@ -16,7 +16,7 @@
     - [ ] Define global CSS tokens (Swiss Red: `#FF0000` or defined HEX, Black: `#000000`, etc.).
     - [ ] Create a re-importable Grid Engine (e.g., CSS Grid layouts or utility classes).
     - [ ] Apply "No Radius" global reset and thin-line outline utility classes.
-- [ ] Task: Build Nav Bar & Language Toggle
+- [~] Task: Build Nav Bar & Language Toggle
     - [ ] Implement fixed floating Nav Bar with backdrop-blur.
     - [ ] Integrate functional EN/CN language toggle.
     - [ ] Add placeholder links for "Blog" and "Protein Design Studio".

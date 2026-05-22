@@ -8,17 +8,18 @@ const t = getTranslations(lang);
 
 <Layout title={t('site.title')} lang={lang}>
 	<main class="grid-container">
-		<nav class="grid-item outline" style="margin-top: 1rem; padding: 1rem;">
-			<a href="/zh/">{t('nav.blog')}</a>
-			<a href="/zh/">{t('nav.studio')}</a>
-            <a href="/">English</a>
-		</nav>
-        <div class="grid-item" style="margin-top: 4rem;">
-		    <h1 class="text-swiss-red" style="font-size: 3.5rem; line-height: 1.1; font-weight: 800;">{t('hero.title')}</h1>
-            <p style="font-size: 1.25rem; margin-top: 1.5rem; max-width: 600px;">{t('hero.subtitle')}</p>
-            <button class="bg-swiss-red outline" style="margin-top: 2rem; padding: 1rem 2rem; font-weight: bold; cursor: pointer;">
-                立即开始
-            </button>
+        <div class="grid-item" style="margin-top: 10rem;">
+		    <h1 class="text-swiss-red" style="font-size: 3.5rem; line-height: 1.1; font-weight: 800; max-width: 800px;">{t('hero.title')}</h1>
+            <p style="font-size: 1.25rem; margin-top: 2rem; max-width: 600px; color: var(--color-grey-800);">{t('hero.subtitle')}</p>
+            
+            <div style="margin-top: 3rem; display: flex; gap: 1rem;">
+                <button class="bg-swiss-red outline" style="padding: 1.25rem 2.5rem; font-weight: 800; cursor: pointer; letter-spacing: 0.05em; font-size: 1rem;">
+                    立即开始
+                </button>
+                <button class="outline" style="padding: 1.25rem 2.5rem; font-weight: 800; cursor: pointer; letter-spacing: 0.05em; font-size: 1rem; background: transparent;">
+                    了解更多
+                </button>
+            </div>
         </div>
 	</main>
 </Layout>

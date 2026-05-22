@@ -1,0 +1,122 @@
+---
+import { getTranslations } from '../i18n/utils';
+
+interface Props {
+    lang: 'en' | 'zh';
+}
+
+const { lang } = Astro.props;
+const t = getTranslations(lang);
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="navbar outline">
+    <div class="grid-container">
+        <div class="nav-content">
+            <div class="nav-logo">
+                <a href={lang === 'en' ? '/' : '/zh/'} class="logo-link">BIGO BDA</a>
+            </div>
+            
+            <div class="nav-links">
+                <a href="#" class="nav-item">{t('nav.blog')}</a>
+                <a href="#" class="nav-item">{t('nav.studio')}</a>
+            </div>
+
+            <div class="nav-actions">
+                <div class="lang-toggle outline">
+                    <a href="/" class={`lang-link ${lang === 'en' ? 'active' : ''}`} data-lang="en">EN</a>
+                    <span class="separator">|</span>
+                    <a href="/zh/" class={`lang-link ${lang === 'zh' ? 'active' : ''}`} data-lang="zh">中文</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<style>
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 64px;
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+    }
+
+    .nav-content {
+        grid-column: span 12;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .logo-link {
+        font-weight: 800;
+        text-decoration: none;
+        color: var(--color-black);
+        font-size: 1.25rem;
+        letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .nav-item {
+        text-decoration: none;
+        color: var(--color-black);
+        font-weight: 500;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        transition: color 0.2s ease;
+    }
+
+    .nav-item:hover {
+        color: var(--color-swiss-red);
+    }
+
+    .lang-toggle {
+        display: flex;
+        align-items: center;
+        padding: 4px 12px;
+        background-color: var(--color-white);
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    .lang-link {
+        text-decoration: none;
+        color: var(--color-grey-500);
+        padding: 2px 4px;
+    }
+
+    .lang-link.active {
+        color: var(--color-swiss-red);
+    }
+
+    .separator {
+        margin: 0 8px;
+        color: var(--color-grey-300);
+    }
+
+    @media (max-width: 640px) {
+        .nav-links {
+            display: none;
+        }
+        .nav-content {
+            grid-column: span 4;
+        }
+    }
+</style>

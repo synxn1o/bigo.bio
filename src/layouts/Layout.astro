@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
 import { getTranslations } from '../i18n/utils';
 
 interface Props {
@@ -21,15 +22,14 @@ const t = getTranslations(lang);
 		<title>{title}</title>
 	</head>
 	<body>
+        <Navbar lang={lang} />
 		<slot />
         <script>
-            document.querySelectorAll('nav a').forEach(link => {
+            document.querySelectorAll('.lang-link').forEach(link => {
                 link.addEventListener('click', (e) => {
-                    const href = (e.target as HTMLAnchorElement).getAttribute('href');
-                    if (href === '/zh/') {
-                        document.cookie = "preferred-lang=zh; path=/; max-age=31536000";
-                    } else if (href === '/') {
-                        document.cookie = "preferred-lang=en; path=/; max-age=31536000";
+                    const lang = (e.currentTarget as HTMLElement).getAttribute('data-lang');
+                    if (lang) {
+                        document.cookie = `preferred-lang=${lang}; path=/; max-age=31536000`;
                     }
                 });
             });
