@@ -37,6 +37,8 @@ const t = getTranslations(lang);
     </div>
 </nav>
 
+<div id="nav-overlay"></div>
+
 <div id="mobile-panel" class="outline">
     <button id="close-panel" aria-label="Close Menu">✕</button>
     <div class="mobile-links">
@@ -164,6 +166,25 @@ const t = getTranslations(lang);
         background-color: var(--color-black);
     }
 
+    #nav-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(4px);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 1500;
+    }
+
+    #nav-overlay.open {
+        opacity: 1;
+        visibility: visible;
+    }
+
     #mobile-panel {
         position: fixed;
         top: 0;
@@ -233,21 +254,26 @@ const t = getTranslations(lang);
     const toggle = document.getElementById('mobile-toggle');
     const panel = document.getElementById('mobile-panel');
     const close = document.getElementById('close-panel');
+    const overlay = document.getElementById('nav-overlay');
 
-    toggle?.addEventListener('click', () => {
-        panel?.classList.add('open');
-    });
-
-    close?.addEventListener('click', () => {
-        panel?.classList.remove('open');
-    });
-
-    // Close on outside click
-    document.addEventListener('click', (e) => {
-        if (panel?.classList.contains('open') && 
-            !panel.contains(e.target as Node) && 
-            !toggle?.contains(e.target as Node)) {
-            panel.classList.remove('open');
+    function toggleMenu(isOpen: boolean) {
+        if (isOpen) {
+            panel?.classList.add('open');
+            overlay?.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        } else {
+            panel?.classList.remove('open');
+            overlay?.classList.remove('open');
+            document.body.style.overflow = '';
         }
+    }
+
+    toggle?.addEventListener('click', () => toggleMenu(true));
+    close?.addEventListener('click', () => toggleMenu(false));
+    overlay?.addEventListener('click', () => toggleMenu(false));
+
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') toggleMenu(false);
     });
 </script>

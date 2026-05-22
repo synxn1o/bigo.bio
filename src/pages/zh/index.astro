@@ -6,14 +6,38 @@ import { getTranslations } from '../../i18n/utils';
 const lang = 'zh';
 const t = getTranslations(lang);
 ---
-
 <Layout title={t('site.title')} lang={lang}>
 	<main class="grid-container" style="padding-bottom: 4rem;">
         <div class="grid-item" style="margin-top: 10rem; display: flex; flex-direction: column; gap: 4rem;">
             <div style="display: flex; flex-direction: column; gap: 2rem;">
-		        <h1 class="text-swiss-red" style="font-size: 3.5rem; line-height: 1.1; font-weight: 800; max-width: 800px;">{t('hero.title')}</h1>
-                <p style="font-size: 1.25rem; max-width: 600px; color: var(--color-grey-800);">{t('hero.subtitle')}</p>
-                
+		        <h1 class="text-swiss-red hero-title">{t('hero.title')}</h1>
+                <p class="hero-subtitle">{t('hero.subtitle')}</p>
+...
+</Layout>
+
+<style>
+    .hero-title {
+        font-size: clamp(2rem, 8vw, 3.5rem);
+        line-height: 1.1;
+        font-weight: 800;
+        max-width: 800px;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(1rem, 4vw, 1.25rem);
+        max-width: 600px;
+        color: var(--color-grey-800);
+    }
+
+    @media (max-width: 640px) {
+        .grid-item {
+            margin-top: 6rem !important;
+        }
+    }
+</style>
                 <div style="display: flex; gap: 1rem;">
                     <button class="bg-swiss-red outline" style="padding: 1.25rem 2.5rem; font-weight: 800; cursor: pointer; letter-spacing: 0.05em; font-size: 1rem;">
                         立即开始
