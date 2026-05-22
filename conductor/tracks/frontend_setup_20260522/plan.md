@@ -11,7 +11,7 @@
     - [ ] Create translation bundles for initial landing page content.
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Framework & Environment Setup' (Protocol in workflow.md) 2dc735c
 
-## Phase 2: "Swiss Red" Design System Foundation
+## Phase 2: "Swiss Red" Design System Foundation [checkpoint: ef53c66]
 - [x] Task: Implement Modular Grid System & Global Styles 7745611
     - [ ] Define global CSS tokens (Swiss Red: `#FF0000` or defined HEX, Black: `#000000`, etc.).
     - [ ] Create a re-importable Grid Engine (e.g., CSS Grid layouts or utility classes).
@@ -20,7 +20,7 @@
     - [ ] Implement fixed floating Nav Bar with backdrop-blur.
     - [ ] Integrate functional EN/CN language toggle.
     - [ ] Add placeholder links for "Blog" and "Protein Design Studio".
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: "Swiss Red" Design System Foundation' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 2: "Swiss Red" Design System Foundation' (Protocol in workflow.md) ef53c66
 
 ## Phase: Review Fixes
 - [x] Task: Apply review suggestions using production reference files 38f7244
