@@ -1,6 +1,6 @@
 # Landing and About Pages Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** Implement the "Operating System for Biology" visionary redesign for the landing page and create a new authoritative "About" page aligned with the May 2026 pitch deck.
 
@@ -17,10 +17,10 @@
 - Modify: `src/i18n/zh.json`
 - Test: `src/tests/i18n.test.ts` (assuming it validates keys)
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 Modify `src/tests/i18n.test.ts` to expect the new keys (if it doesn't dynamically check, we just add the keys, but let's assume we ensure parity). Let's skip formal failing test for JSON dictionaries and just update them directly, as they are static data. We will rely on TypeScript/build step to catch missing keys if used. We'll run a build check.
 
-- [ ] **Step 2: Modify `src/i18n/en.json`**
+- [x] **Step 2: Modify `src/i18n/en.json`**
 
 ```json
 {
@@ -59,7 +59,7 @@ Modify `src/tests/i18n.test.ts` to expect the new keys (if it doesn't dynamicall
 }
 ```
 
-- [ ] **Step 3: Modify `src/i18n/zh.json`**
+- [x] **Step 3: Modify `src/i18n/zh.json`**
 
 ```json
 {
@@ -98,10 +98,10 @@ Modify `src/tests/i18n.test.ts` to expect the new keys (if it doesn't dynamicall
 }
 ```
 
-- [ ] **Step 4: Run build to verify type safety**
+- [x] **Step 4: Run build to verify type safety**
 Run: `npm run build` or `bun run build` (or `vitest` if configured). We expect success.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 ```bash
 git add src/i18n/
 git commit -m "feat(i18n): add localization keys for landing and about pages"
@@ -115,7 +115,7 @@ git commit -m "feat(i18n): add localization keys for landing and about pages"
 - Create: `src/components/TeamMember.astro`
 - Create: `src/tests/components/TeamMember.test.ts` (stub if needed, skip for brevity as Astro UI testing setup varies, we rely on manual DOM check or build success).
 
-- [ ] **Step 1: Write `src/components/TeamMember.astro`**
+- [x] **Step 1: Write `src/components/TeamMember.astro`**
 
 ```astro
 ---
@@ -194,10 +194,10 @@ const { name, role, bio, imageSrc = "/favicon.svg" } = Astro.props;
 </style>
 ```
 
-- [ ] **Step 2: Run build to verify syntax**
+- [x] **Step 2: Run build to verify syntax**
 Run: `bun run build`
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 ```bash
 git add src/components/TeamMember.astro
 git commit -m "feat(ui): create TeamMember component"
@@ -210,7 +210,7 @@ git commit -m "feat(ui): create TeamMember component"
 **Files:**
 - Create: `src/components/Footer.astro`
 
-- [ ] **Step 1: Write `src/components/Footer.astro`**
+- [x] **Step 1: Write `src/components/Footer.astro`**
 
 ```astro
 ---
@@ -294,10 +294,10 @@ const t = getTranslations(lang);
 </style>
 ```
 
-- [ ] **Step 2: Run build to verify syntax**
+- [x] **Step 2: Run build to verify syntax**
 Run: `bun run build`
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 ```bash
 git add src/components/Footer.astro
 git commit -m "feat(ui): create Footer component"
@@ -310,7 +310,7 @@ git commit -m "feat(ui): create Footer component"
 **Files:**
 - Modify: `src/components/Navbar.astro`
 
-- [ ] **Step 1: Add "About" link to Navbar**
+- [x] **Step 1: Add "About" link to Navbar**
 In `src/components/Navbar.astro`, insert the About `NavLink` before the Blog link in both `.nav-links` and `.mobile-links`.
 
 Replace `src/components/Navbar.astro`:
@@ -536,7 +536,7 @@ const t = getTranslations(lang);
 </script>
 ```
 
-- [ ] **Step 2: Check Layout updates**
+- [x] **Step 2: Check Layout updates**
 Ensure Layout component renders Footer. Let's update `src/layouts/Layout.astro` as well.
 
 Modify `src/layouts/Layout.astro`:
@@ -574,7 +574,7 @@ const t = getTranslations(lang);
 </html>
 ```
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 ```bash
 git add src/components/Navbar.astro src/layouts/Layout.astro
 git commit -m "feat(ui): add About link to nav and inject Footer into layout"
@@ -587,7 +587,7 @@ git commit -m "feat(ui): add About link to nav and inject Footer into layout"
 **Files:**
 - Modify: `src/components/Hero.astro`
 
-- [ ] **Step 1: Update Hero Layout**
+- [x] **Step 1: Update Hero Layout**
 Implement edge-to-edge typography with bottom-left alignment logic and selective red highlight.
 
 Replace `src/components/Hero.astro`:
@@ -671,7 +671,7 @@ const t = getTranslations(lang);
 </style>
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 ```bash
 git add src/components/Hero.astro
 git commit -m "feat(ui): redesign Hero with poster aesthetic"
@@ -685,7 +685,7 @@ git commit -m "feat(ui): redesign Hero with poster aesthetic"
 - Modify: `src/pages/index.astro`
 - Modify: `src/pages/zh/index.astro`
 
-- [ ] **Step 1: Rewrite `src/pages/index.astro`**
+- [x] **Step 1: Rewrite `src/pages/index.astro`**
 
 ```astro
 ---
@@ -789,7 +789,7 @@ const t = getTranslations(lang);
 </style>
 ```
 
-- [ ] **Step 2: Sync to `src/pages/zh/index.astro`**
+- [x] **Step 2: Sync to `src/pages/zh/index.astro`**
 
 ```astro
 ---
@@ -893,7 +893,7 @@ const t = getTranslations(lang);
 </style>
 ```
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 ```bash
 git add src/pages/index.astro src/pages/zh/index.astro
 git commit -m "feat(pages): implement new landing page layout"
@@ -907,7 +907,7 @@ git commit -m "feat(pages): implement new landing page layout"
 - Create: `src/pages/about.astro`
 - Create: `src/pages/zh/about.astro`
 
-- [ ] **Step 1: Write `src/pages/about.astro`**
+- [x] **Step 1: Write `src/pages/about.astro`**
 
 ```astro
 ---
@@ -1079,7 +1079,7 @@ const t = getTranslations(lang);
 </style>
 ```
 
-- [ ] **Step 2: Sync to `src/pages/zh/about.astro`**
+- [x] **Step 2: Sync to `src/pages/zh/about.astro`**
 
 ```astro
 ---
@@ -1252,10 +1252,10 @@ const t = getTranslations(lang);
 </style>
 ```
 
-- [ ] **Step 3: Run build validation**
+- [x] **Step 3: Run build validation**
 Run `npm run build` or `bun run build`.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 ```bash
 git add src/pages/about.astro src/pages/zh/about.astro
 git commit -m "feat(pages): implement About page with team and mission"
