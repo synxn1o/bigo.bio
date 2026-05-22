@@ -17,9 +17,8 @@ describe('Navbar Component', () => {
   });
 
   it('should include the integrated language toggle', () => {
-    expect(navbarContent).toContain('lang-toggle');
-    expect(navbarContent).toContain('data-lang="en"');
-    expect(navbarContent).toContain('data-lang="zh"');
+    expect(navbarContent).toContain('import LanguageToggle from \'./LanguageToggle.astro\'');
+    expect(navbarContent).toContain('<LanguageToggle lang={lang} />');
   });
 
   it('should have the logo and links defined', () => {

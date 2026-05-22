@@ -1,0 +1,67 @@
+---
+interface Props {
+    lang: 'en' | 'zh';
+}
+
+const { lang } = Astro.props;
+---
+
+<div class="lang-toggle outline">
+    <a href="/" class={`lang-link ${lang === 'en' ? 'active' : ''}`} data-lang="en">EN</a>
+    <span class="separator"></span>
+    <a href="/zh/" class={`lang-link ${lang === 'zh' ? 'active' : ''}`} data-lang="zh">中文</a>
+</div>
+
+<style>
+    .lang-toggle {
+        display: flex;
+        align-items: center;
+        background-color: var(--color-white);
+        font-size: 0.8rem;
+        font-weight: 700;
+        height: 40px;
+    }
+
+    .lang-link {
+        text-decoration: none;
+        color: var(--color-grey-500);
+        width: 50px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+    }
+
+    .lang-link:hover {
+        color: var(--color-black);
+    }
+
+    .lang-link:focus-visible {
+        outline: 2px solid var(--color-swiss-red);
+        outline-offset: -2px;
+        z-index: 1;
+    }
+
+    .lang-link.active {
+        color: var(--color-white);
+        background-color: var(--color-black);
+    }
+
+    .separator {
+        width: 1px;
+        height: 20px;
+        background-color: var(--color-black);
+    }
+</style>
+
+<script>
+    document.querySelectorAll('.lang-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const lang = (e.currentTarget as HTMLElement).getAttribute('data-lang');
+            if (lang) {
+                document.cookie = `preferred-lang=${lang}; path=/; max-age=31536000`;
+            }
+        });
+    });
+</script>

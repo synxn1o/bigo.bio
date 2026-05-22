@@ -1,5 +1,6 @@
 ---
 import { getTranslations } from '../i18n/utils';
+import LanguageToggle from './LanguageToggle.astro';
 
 interface Props {
     lang: 'en' | 'zh';
@@ -22,11 +23,7 @@ const t = getTranslations(lang);
             </div>
 
             <div class="nav-actions">
-                <div class="lang-toggle outline">
-                    <a href="/" class={`lang-link ${lang === 'en' ? 'active' : ''}`} data-lang="en">EN</a>
-                    <span class="separator"></span>
-                    <a href="/zh/" class={`lang-link ${lang === 'zh' ? 'active' : ''}`} data-lang="zh">中文</a>
-                </div>
+                <LanguageToggle lang={lang} />
                 <button id="mobile-toggle" class="mobile-only outline" aria-label="Toggle Menu">
                     <span class="hamburger-line"></span>
                     <span class="hamburger-line"></span>
@@ -114,37 +111,6 @@ const t = getTranslations(lang);
         display: flex;
         gap: 0.5rem;
         align-items: center;
-    }
-
-    .lang-toggle {
-        display: flex;
-        align-items: center;
-        background-color: var(--color-white);
-        font-size: 0.8rem;
-        font-weight: 700;
-        height: 40px;
-    }
-
-    .lang-link {
-        text-decoration: none;
-        color: var(--color-grey-500);
-        width: 50px;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.2s ease;
-    }
-
-    .lang-link.active {
-        color: var(--color-white);
-        background-color: var(--color-black);
-    }
-
-    .separator {
-        width: 1px;
-        height: 20px;
-        background-color: var(--color-black);
     }
 
     /* Mobile Specific */
