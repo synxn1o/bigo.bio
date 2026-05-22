@@ -20,5 +20,18 @@ const t = getTranslations(lang);
 		</nav>
 		<h1>{t('hero.title')}</h1>
         <p>{t('hero.subtitle')}</p>
+
+        <script>
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = (e.target as HTMLAnchorElement).getAttribute('href');
+                    if (href === '/zh/') {
+                        document.cookie = "preferred-lang=zh; path=/; max-age=31536000";
+                    } else if (href === '/') {
+                        document.cookie = "preferred-lang=en; path=/; max-age=31536000";
+                    }
+                });
+            });
+        </script>
 	</body>
 </html>
