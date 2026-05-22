@@ -7,4 +7,6 @@
 - **Language:** TypeScript
 
 ## Frontend
-- **Framework:** To be selected (Must be a framework capable of being deployed directly to Cloudflare Workers, e.g., Astro, Remix, Nuxt, SvelteKit, or Hono).
+- **Framework:** Astro (SSR mode, deployed to Cloudflare Workers via @astrojs/cloudflare adapter).
+- **Testing:** Vitest with JSDoc environment.
+- **Internationalization:** Astro native i18n with custom middleware for cookie-based manual override.
