@@ -1,0 +1,42 @@
+---
+interface Props {
+    href: string;
+    class?: string;
+}
+
+const { href, class: className } = Astro.props;
+---
+
+<a href={href} class:list={["nav-link", className]}>
+    <slot />
+</a>
+
+<style>
+    .nav-link {
+        text-decoration: none;
+        color: var(--color-black);
+        font-weight: 700;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        transition: all 0.2s ease;
+        width: 160px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--color-black);
+        margin-left: -1px;
+    }
+
+    .nav-link:hover {
+        background-color: var(--color-swiss-red);
+        color: var(--color-white);
+    }
+
+    @media (max-width: 1024px) {
+        .nav-link {
+            width: 120px;
+        }
+    }
+</style>
