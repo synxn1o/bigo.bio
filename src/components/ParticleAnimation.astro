@@ -6,13 +6,16 @@
     #particle-container {
         position: relative;
         width: 100%;
-        height: 400px;
+        height: clamp(300px, 50vh, 500px);
         background-color: var(--color-white);
         overflow: hidden;
+        margin-top: 2rem;
     }
 
     #particle-canvas {
         display: block;
+        width: 100%;
+        height: 100%;
     }
 </style>
 
@@ -62,8 +65,14 @@
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
-        canvas.width = container.offsetWidth;
-        canvas.height = container.offsetHeight;
+        const resize = () => {
+            const rect = container.getBoundingClientRect();
+            canvas.width = rect.width;
+            canvas.height = rect.height;
+        };
+
+        resize();
+        window.addEventListener('resize', resize);
 
         const particles: Particle[] = [];
         const particleCount = 100;
@@ -102,12 +111,10 @@
         }
 
         animate();
-
-        window.addEventListener('resize', () => {
-            canvas.width = container.offsetWidth;
-            canvas.height = container.offsetHeight;
-        });
     }
 
+    // Run on mount
     init();
+    // Re-run if Astro swaps content
+    document.addEventListener('astro:after-swap', init);
 </script>
