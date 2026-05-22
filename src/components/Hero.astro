@@ -10,55 +10,67 @@ const { lang } = Astro.props;
 const t = getTranslations(lang);
 ---
 
-<div class="hero-container">
+<div class="hero-container grid-item">
     <div class="hero-text">
-        <h1 class="text-swiss-red hero-title">{t('hero.title')}</h1>
+        <h1 class="hero-title">
+            {t('hero.title_part1')}<span class="text-swiss-red">{t('hero.title_highlight')}</span>{t('hero.title_part2')}
+        </h1>
         <p class="hero-subtitle">{t('hero.subtitle')}</p>
         <div class="hero-actions">
-            <Button variant="primary">{t('hero.cta.start') || 'GET STARTED'}</Button>
-            <Button variant="outline">{t('hero.cta.learn') || 'LEARN MORE'}</Button>
+            <Button variant="primary">{t('hero.cta.start')}</Button>
+            <Button variant="outline">{t('hero.cta.learn')}</Button>
         </div>
     </div>
 </div>
 
 <style>
     .hero-container {
-        margin-top: 10rem;
+        min-height: 80vh;
         display: flex;
         flex-direction: column;
-        gap: 4rem;
+        justify-content: flex-end; /* Bottom alignment */
+        padding-bottom: 4rem;
+        padding-top: 10rem;
     }
 
     .hero-text {
         display: flex;
         flex-direction: column;
         gap: 2rem;
+        max-width: 1000px;
     }
 
     .hero-title {
-        font-size: clamp(2rem, 8vw, 3.5rem);
-        line-height: 1.1;
+        font-size: clamp(3rem, 8vw, 6rem); /* Massive typography */
+        line-height: 1;
         font-weight: 800;
-        max-width: 800px;
-        overflow-wrap: break-word;
-        word-wrap: break-word;
-        hyphens: auto;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
     }
 
     .hero-subtitle {
-        font-size: clamp(1rem, 4vw, 1.25rem);
-        max-width: 600px;
+        font-size: clamp(1.25rem, 4vw, 1.5rem);
+        max-width: 700px;
         color: var(--color-grey-800);
+        border-left: 4px solid var(--color-black);
+        padding-left: 1rem;
     }
 
     .hero-actions {
         display: flex;
         gap: 1rem;
+        margin-top: 1rem;
     }
 
     @media (max-width: 640px) {
         .hero-container {
-            margin-top: 6rem;
+            min-height: 70vh;
+            padding-bottom: 2rem;
+        }
+        
+        .hero-title {
+            hyphens: auto;
+            word-wrap: break-word;
         }
     }
 </style>

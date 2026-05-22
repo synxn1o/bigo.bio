@@ -11,10 +11,17 @@ describe('Hero Component', () => {
 
   it('should use translation keys', () => {
     const content = fs.readFileSync(heroPath, 'utf8');
-    expect(content).toContain("{t('hero.title')}");
+    expect(content).toContain("{t('hero.title_part1')}");
+    expect(content).toContain("{t('hero.title_highlight')}");
+    expect(content).toContain("{t('hero.title_part2')}");
     expect(content).toContain("{t('hero.subtitle')}");
     expect(content).toContain("t('hero.cta.start')");
     expect(content).toContain("t('hero.cta.learn')");
+  });
+
+  it('should include poster aesthetic classes', () => {
+    const content = fs.readFileSync(heroPath, 'utf8');
+    expect(content).toContain('text-swiss-red');
   });
 
   it('should use Button component', () => {
