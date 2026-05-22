@@ -28,7 +28,7 @@
   "team.yuze.bio": "Oxford postdoc; Ph.D. in Mechanobiology, NUS. Expert in AI molecular design.",
   "mission.flow": "Sequence → Structure → Function",
   "mission.cycle": "Design · Build · Test · Learn · Scale",
-  "mission.metrics.time": "8 Months R&D Cycle",
-  "mission.metrics.cost": "60-70% Cost Reduction",
+  "mission.metrics.time": "R&D Cycle Time",
+  "mission.metrics.cost": "Cost Reduction",
   "footer.contact": "Contact: contact@bigo.bio"
 }

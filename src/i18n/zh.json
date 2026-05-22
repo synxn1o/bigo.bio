@@ -28,7 +28,7 @@
   "team.yuze.bio": "牛津大学博士后；新加坡国立大学机械生物学博士。AI 分子设计专家。",
   "mission.flow": "序列 → 结构 → 功能",
   "mission.cycle": "设计 · 构建 · 测试 · 学习 · 扩展",
-  "mission.metrics.time": "8 个月研发周期",
-  "mission.metrics.cost": "60-70% 成本降低",
+  "mission.metrics.time": "研发周期",
+  "mission.metrics.cost": "成本降低",
   "footer.contact": "联系方式: contact@bigo.bio"
 }
