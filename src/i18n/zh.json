@@ -2,6 +2,8 @@
   "site.title": "BIGO BDA 平台",
   "hero.title": "可编程生物材料的通用 AGI 解决方案",
   "hero.subtitle": "从蛋白质药物到可编程生物材料",
+  "hero.cta.start": "立即开始",
+  "hero.cta.learn": "了解更多",
   "nav.blog": "博客",
   "nav.studio": "蛋白质设计工作室"
 }

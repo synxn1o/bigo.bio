@@ -50,7 +50,7 @@
         }
 
         draw() {
-            this.ctx.fillStyle = '#E60000'; // Swiss Red
+            this.ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--color-swiss-red').trim() || '#E60000';
             this.ctx.beginPath();
             this.ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             this.ctx.fill();

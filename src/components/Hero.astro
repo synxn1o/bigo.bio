@@ -1,0 +1,64 @@
+---
+import Button from './Button.astro';
+import { getTranslations } from '../i18n/utils';
+
+interface Props {
+    lang: 'en' | 'zh';
+}
+
+const { lang } = Astro.props;
+const t = getTranslations(lang);
+---
+
+<div class="hero-container">
+    <div class="hero-text">
+        <h1 class="text-swiss-red hero-title">{t('hero.title')}</h1>
+        <p class="hero-subtitle">{t('hero.subtitle')}</p>
+        <div class="hero-actions">
+            <Button variant="primary">{t('hero.cta.start') || 'GET STARTED'}</Button>
+            <Button variant="outline">{t('hero.cta.learn') || 'LEARN MORE'}</Button>
+        </div>
+    </div>
+</div>
+
+<style>
+    .hero-container {
+        margin-top: 10rem;
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+    .hero-text {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 8vw, 3.5rem);
+        line-height: 1.1;
+        font-weight: 800;
+        max-width: 800px;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(1rem, 4vw, 1.25rem);
+        max-width: 600px;
+        color: var(--color-grey-800);
+    }
+
+    .hero-actions {
+        display: flex;
+        gap: 1rem;
+    }
+
+    @media (max-width: 640px) {
+        .hero-container {
+            margin-top: 6rem;
+        }
+    }
+</style>

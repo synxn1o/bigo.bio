@@ -2,6 +2,8 @@
   "site.title": "BIGO BDA Platform",
   "hero.title": "Universal AGI Solution for Programmable Biomaterials",
   "hero.subtitle": "From Protein Therapeutics to Programmable Biomaterials",
+  "hero.cta.start": "GET STARTED",
+  "hero.cta.learn": "LEARN MORE",
   "nav.blog": "Blog",
   "nav.studio": "Protein Design Studio"
 }

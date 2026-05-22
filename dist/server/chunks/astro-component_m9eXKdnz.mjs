@@ -1,6 +1,6 @@
 globalThis.process ??= {};
 globalThis.process.env ??= {};
-import { A as AstroError, e as InvalidComponentArgs } from "./worker-entry_DvGFab_1.mjs";
+import { d as AstroError, p as InvalidComponentArgs } from "./params-and-props_BhIKCyxe.mjs";
 function validateArgs(args) {
   if (args.length !== 3) return false;
   if (!args[0] || typeof args[0] !== "object") return false;

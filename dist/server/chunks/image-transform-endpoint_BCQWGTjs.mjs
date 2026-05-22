@@ -1,8 +1,9 @@
 globalThis.process ??= {};
 globalThis.process.env ??= {};
 import { env } from "cloudflare:workers";
-import { r as removeQueryString, A as AstroError, N as NoImageMetadata, j as isRemoteAllowed, F as FailedToFetchRemoteImageDimensions, R as RemoteImageNotAllowed, l as joinPaths, E as ExpectedImage, k as isRemotePath, L as LocalImageUsedWrongly, g as MissingImageDimension, h as UnsupportedImageFormat, d as IncompatibleDescriptorOptions, U as UnsupportedImageConversion, a as ExpectedImageOptions, b as ExpectedNotESMImage, f as InvalidImageService, I as ImageMissingAlt, m as maybeRenderHead, i as addAttribute, s as spreadAttributes, o as renderTemplate, c as FontFamilyNotFound, u as unescapeHTML, M as MissingGetFontFileRequestUrl } from "./worker-entry_DvGFab_1.mjs";
-import { c as createComponent } from "./astro-component_C9fyLOBE.mjs";
+import { b1 as removeQueryString, d as AstroError, y as NoImageMetadata, F as FailedToFetchRemoteImageDimensions, T as RemoteImageNotAllowed, aU as joinPaths, h as ExpectedImage, aO as isRemotePath, L as LocalImageUsedWrongly, v as MissingImageDimension, a3 as UnsupportedImageFormat, o as IncompatibleDescriptorOptions, a2 as UnsupportedImageConversion, i as ExpectedImageOptions, j as ExpectedNotESMImage, q as InvalidImageService, n as ImageMissingAlt, aW as maybeRenderHead, a4 as addAttribute, b9 as renderTemplate, k as FontFamilyNotFound, bk as unescapeHTML, u as MissingGetFontFileRequestUrl } from "./params-and-props_BhIKCyxe.mjs";
+import { i as isRemoteAllowed, s as spreadAttributes } from "./worker-entry_D8OAs1oI.mjs";
+import { c as createComponent } from "./astro-component_m9eXKdnz.mjs";
 const VALID_SUPPORTED_FORMATS = [
   "jpeg",
   "jpg",
@@ -1508,7 +1509,7 @@ async function getConfiguredImageService() {
   if (!globalThis?.astroAsset?.imageService) {
     const { default: service } = await import(
       // @ts-expect-error
-      "./image-service-workerd_2xA8H8Ch.mjs"
+      "./image-service-workerd_hrXLi4jm.mjs"
     ).catch((e) => {
       const error = new AstroError(InvalidImageService);
       error.cause = e;
