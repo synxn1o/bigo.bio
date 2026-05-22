@@ -41,6 +41,7 @@ const t = getTranslations(lang);
 <div id="mobile-panel" class="outline">
     <button id="close-panel" type="button" aria-label="Close Menu">✕</button>
     <div class="mobile-links">
+        <NavLink href={lang === 'en' ? '/about' : '/zh/about'} class="mobile-nav-item">{t('nav.about')}</NavLink>
         <NavLink href="#" class="mobile-nav-item">{t('nav.blog')}</NavLink>
         <NavLink href="#" class="mobile-nav-item">{t('nav.studio')}</NavLink>
     </div>
@@ -214,6 +215,4 @@ const t = getTranslations(lang);
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') toggleMenu(false);
     });
-</script>
-  });
 </script>

@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
 import { getTranslations } from '../i18n/utils';
 
 interface Props {
@@ -25,8 +26,5 @@ const t = getTranslations(lang);
         <Navbar lang={lang} />
 		<slot />
         <Footer lang={lang} />
-	</body>
-</html>
-
 	</body>
 </html>
