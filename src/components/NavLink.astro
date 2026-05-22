@@ -1,13 +1,15 @@
 ---
-interface Props {
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'a'> {
     href: string;
     class?: string;
 }
 
-const { href, class: className } = Astro.props;
+const { href, class: className, ...rest } = Astro.props;
 ---
 
-<a href={href} class:list={["nav-link", className]}>
+<a href={href} class:list={["nav-link", className]} {...rest}>
     <slot />
 </a>
 
@@ -32,6 +34,11 @@ const { href, class: className } = Astro.props;
     .nav-link:hover {
         background-color: var(--color-swiss-red);
         color: var(--color-white);
+    }
+
+    .nav-link:focus-visible {
+        outline: 2px solid var(--color-swiss-red);
+        outline-offset: 2px;
     }
 
     @media (max-width: 1024px) {

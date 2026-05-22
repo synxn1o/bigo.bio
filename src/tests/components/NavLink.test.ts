@@ -36,6 +36,19 @@ describe('NavLink Component', () => {
     expect(content).toContain('color: var(--color-white)');
   });
 
+  it('should have focus-visible state styles', () => {
+    const content = fs.readFileSync(navLinkPath, 'utf8');
+    expect(content).toContain('.nav-link:focus-visible');
+    expect(content).toContain('outline: 2px solid var(--color-swiss-red)');
+    expect(content).toContain('outline-offset: 2px;');
+  });
+
+  it('should support prop spreading', () => {
+    const content = fs.readFileSync(navLinkPath, 'utf8');
+    expect(content).toContain('...rest');
+    expect(content).toContain('{...rest}');
+  });
+
   it('should include responsive styles', () => {
     const content = fs.readFileSync(navLinkPath, 'utf8');
     expect(content).toContain('@media (max-width: 1024px)');
