@@ -8,10 +8,92 @@ const lang = 'zh';
 const t = getTranslations(lang);
 ---
 <Layout title={t('site.title')} lang={lang}>
-	<main class="grid-container" style="padding-bottom: 4rem;">
-        <div class="grid-item" style="display: flex; flex-direction: column; gap: 4rem;">
-            <Hero lang={lang} />
+	<main class="grid-container main-content">
+        <Hero lang={lang} />
+
+        <div class="animation-wrapper grid-item outline">
             <ParticleAnimation />
+        </div>
+
+        <div class="vision-section grid-item">
+            <h2 class="vision-title">{t('vision.title')}</h2>
+        </div>
+
+        <div class="pillars-grid grid-item">
+            <div class="pillar outline">
+                <h3>{t('pillars.drug.title')}</h3>
+                <p>{t('pillars.drug.desc')}</p>
+            </div>
+            <div class="pillar outline">
+                <h3>{t('pillars.vaccine.title')}</h3>
+                <p>{t('pillars.vaccine.desc')}</p>
+            </div>
+            <div class="pillar outline">
+                <h3>{t('pillars.enzyme.title')}</h3>
+                <p>{t('pillars.enzyme.desc')}</p>
+            </div>
         </div>
 	</main>
 </Layout>
+
+<style>
+    .main-content {
+        padding-bottom: 6rem;
+        gap: 4rem var(--grid-gutter);
+    }
+
+    .animation-wrapper {
+        height: 300px;
+        position: relative;
+        overflow: hidden;
+        background: var(--color-grey-100);
+    }
+
+    .vision-section {
+        margin-top: 2rem;
+    }
+
+    .vision-title {
+        font-size: clamp(2rem, 5vw, 3rem);
+        line-height: 1.2;
+        font-weight: 800;
+        max-width: 900px;
+    }
+
+    .pillars-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--grid-gutter);
+    }
+
+    .pillar {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        background: var(--color-white);
+    }
+
+    .pillar h3 {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--color-swiss-red);
+    }
+
+    .pillar p {
+        color: var(--color-grey-800);
+        line-height: 1.6;
+    }
+
+    @media (max-width: 1024px) {
+        .pillars-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 640px) {
+        .pillars-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
