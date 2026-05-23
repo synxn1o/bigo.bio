@@ -13,6 +13,6 @@ export function getTranslations(lang: Locale) {
   const t = translations[lang] || translations.en;
   
   return (key: TranslationKey) => {
-    return t[key] || key;
+    return t[key] ?? key;
   };
 }
