@@ -2,6 +2,7 @@
 import { getTranslations } from '../i18n/utils';
 import NavLink from './NavLink.astro';
 import LanguageToggle from './LanguageToggle.astro';
+import DropdownNav from './DropdownNav.astro';
 
 interface Props {
     lang: 'en' | 'zh';
@@ -19,9 +20,25 @@ const t = getTranslations(lang);
             </div>
             
             <div class="nav-links desktop-only">
+                <DropdownNav
+                    label={t('nav.bda')}
+                    lang={lang}
+                    items={[
+                        { href: lang === 'en' ? '/bda' : '/zh/bda', label: t('nav.bda.overview'), description: t('nav.bda.overview.desc') },
+                        { href: lang === 'en' ? '/bda/workflow' : '/zh/bda/workflow', label: t('nav.bda.workflow'), description: t('nav.bda.workflow.desc') },
+                    ]}
+                />
+                <DropdownNav
+                    label={t('nav.pipeline')}
+                    lang={lang}
+                    items={[
+                        { href: lang === 'en' ? '/pipeline/bp-326' : '/zh/pipeline/bp-326', label: t('nav.pipeline.bp326'), description: t('nav.pipeline.bp326.desc') },
+                        { href: lang === 'en' ? '/pipeline/ribh' : '/zh/pipeline/ribh', label: t('nav.pipeline.ribh'), description: t('nav.pipeline.ribh.desc') },
+                        { href: lang === 'en' ? '/pipeline/cd3' : '/zh/pipeline/cd3', label: t('nav.pipeline.cd3'), description: t('nav.pipeline.cd3.desc') },
+                    ]}
+                />
                 <NavLink href={lang === 'en' ? '/about' : '/zh/about'}>{t('nav.about')}</NavLink>
                 <NavLink href="#">{t('nav.blog')}</NavLink>
-                <NavLink href="#">{t('nav.studio')}</NavLink>
             </div>
 
             <div class="nav-actions">
@@ -41,9 +58,15 @@ const t = getTranslations(lang);
 <div id="mobile-panel" class="outline">
     <button id="close-panel" type="button" aria-label="Close Menu">✕</button>
     <div class="mobile-links">
+        <div class="mobile-section-label">{t('nav.bda')}</div>
+        <NavLink href={lang === 'en' ? '/bda' : '/zh/bda'} class="mobile-nav-item">{t('nav.bda.overview')}</NavLink>
+        <NavLink href={lang === 'en' ? '/bda/workflow' : '/zh/bda/workflow'} class="mobile-nav-item">{t('nav.bda.workflow')}</NavLink>
+        <div class="mobile-section-label">{t('nav.pipeline')}</div>
+        <NavLink href={lang === 'en' ? '/pipeline/bp-326' : '/zh/pipeline/bp-326'} class="mobile-nav-item">{t('nav.pipeline.bp326')}</NavLink>
+        <NavLink href={lang === 'en' ? '/pipeline/ribh' : '/zh/pipeline/ribh'} class="mobile-nav-item">{t('nav.pipeline.ribh')}</NavLink>
+        <NavLink href={lang === 'en' ? '/pipeline/cd3' : '/zh/pipeline/cd3'} class="mobile-nav-item">{t('nav.pipeline.cd3')}</NavLink>
         <NavLink href={lang === 'en' ? '/about' : '/zh/about'} class="mobile-nav-item">{t('nav.about')}</NavLink>
         <NavLink href="#" class="mobile-nav-item">{t('nav.blog')}</NavLink>
-        <NavLink href="#" class="mobile-nav-item">{t('nav.studio')}</NavLink>
     </div>
 </div>
 
@@ -167,6 +190,16 @@ const t = getTranslations(lang);
         display: flex;
         flex-direction: column;
         gap: 1rem;
+    }
+
+    .mobile-section-label {
+        font-size: 0.7rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--color-grey-500);
+        padding: 0.5rem 0 0.25rem;
+        border-bottom: 1px solid var(--color-grey-200);
     }
 
     .mobile-nav-item {

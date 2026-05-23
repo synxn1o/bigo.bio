@@ -1,0 +1,180 @@
+---
+interface DropdownItem {
+    href: string;
+    label: string;
+    description?: string;
+}
+
+interface Props {
+    label: string;
+    items: DropdownItem[];
+    lang: 'en' | 'zh';
+}
+
+const { label, items, lang } = Astro.props;
+---
+
+<div class="dropdown-nav" role="navigation" aria-label={label}>
+    <button class="dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">
+        <span class="dropdown-label">{label}</span>
+        <span class="dropdown-chevron">▾</span>
+    </button>
+    <div class="dropdown-panel" role="menu">
+        {items.map((item) => (
+            <a href={item.href} class="dropdown-item" role="menuitem">
+                <span class="dropdown-item-label">{item.label}</span>
+                {item.description && <span class="dropdown-item-desc">{item.description}</span>}
+            </a>
+        ))}
+    </div>
+</div>
+
+<style>
+    .dropdown-nav {
+        position: relative;
+    }
+
+    .dropdown-trigger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 160px;
+        height: 40px;
+        background: none;
+        border: 1px solid var(--color-black);
+        cursor: pointer;
+        font-family: var(--font-family);
+        font-weight: 700;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        transition: all 0.2s ease;
+        margin-left: -1px;
+    }
+
+    .dropdown-trigger:hover,
+    .dropdown-trigger[aria-expanded="true"] {
+        background-color: var(--color-black);
+        color: var(--color-white);
+    }
+
+    .dropdown-chevron {
+        font-size: 0.7rem;
+        transition: transform 0.2s ease;
+    }
+
+    .dropdown-trigger[aria-expanded="true"] .dropdown-chevron {
+        transform: rotate(180deg);
+    }
+
+    .dropdown-panel {
+        position: absolute;
+        top: 100%;
+        left: -1px;
+        min-width: 240px;
+        background: var(--color-white);
+        border: 1px solid var(--color-black);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4px);
+        transition: all 0.2s ease;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dropdown-nav:hover .dropdown-panel,
+    .dropdown-trigger[aria-expanded="true"] + .dropdown-panel {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .dropdown-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: 0.75rem 1rem;
+        text-decoration: none;
+        color: var(--color-black);
+        transition: background-color 0.15s ease;
+        border-bottom: 1px solid var(--color-grey-200);
+    }
+
+    .dropdown-item:last-child {
+        border-bottom: none;
+    }
+
+    .dropdown-item:hover {
+        background-color: var(--color-grey-100);
+    }
+
+    .dropdown-item-label {
+        font-weight: 700;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .dropdown-item-desc {
+        font-size: 0.75rem;
+        color: var(--color-grey-600);
+        text-transform: none;
+        letter-spacing: normal;
+    }
+
+    @media (max-width: 768px) {
+        .dropdown-nav {
+            width: 100%;
+        }
+
+        .dropdown-trigger {
+            width: 100%;
+            justify-content: space-between;
+            padding: 0 1rem;
+            border: none;
+            border-bottom: 1px solid var(--color-grey-200);
+            margin-left: 0;
+        }
+
+        .dropdown-panel {
+            position: static;
+            border: none;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .dropdown-nav.open .dropdown-panel {
+            max-height: 500px;
+        }
+
+        .dropdown-item {
+            padding-left: 2rem;
+        }
+    }
+</style>
+
+<script>
+    document.querySelectorAll('.dropdown-trigger').forEach((trigger) => {
+        trigger.addEventListener('click', () => {
+            const expanded = trigger.getAttribute('aria-expanded') === 'true';
+            trigger.setAttribute('aria-expanded', (!expanded).toString());
+            trigger.closest('.dropdown-nav')?.classList.toggle('open');
+        });
+    });
+
+    document.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        document.querySelectorAll('.dropdown-trigger').forEach((trigger) => {
+            if (!trigger.closest('.dropdown-nav')?.contains(target)) {
+                trigger.setAttribute('aria-expanded', 'false');
+                trigger.closest('.dropdown-nav')?.classList.remove('open');
+            }
+        });
+    });
+</script>

@@ -21,9 +21,24 @@ describe('Navbar Component', () => {
     expect(navbarContent).toContain('<LanguageToggle lang={lang} />');
   });
 
-  it('should have the logo and links defined', () => {
+  it('should import and use DropdownNav for BDA+ and Pipeline', () => {
+    expect(navbarContent).toContain('import DropdownNav from \'./DropdownNav.astro\'');
+    expect(navbarContent).toContain("t('nav.bda')");
+    expect(navbarContent).toContain("t('nav.pipeline')");
+  });
+
+  it('should include BDA+ dropdown items', () => {
+    expect(navbarContent).toContain("t('nav.bda.overview')");
+    expect(navbarContent).toContain("t('nav.bda.workflow')");
+  });
+
+  it('should include Pipeline dropdown items', () => {
+    expect(navbarContent).toContain("t('nav.pipeline.bp326')");
+    expect(navbarContent).toContain("t('nav.pipeline.ribh')");
+    expect(navbarContent).toContain("t('nav.pipeline.cd3')");
+  });
+
+  it('should have the logo defined', () => {
     expect(navbarContent).toContain('BIGO BDA');
-    expect(navbarContent).toContain("t('nav.blog')");
-    expect(navbarContent).toContain("t('nav.studio')");
   });
 });
