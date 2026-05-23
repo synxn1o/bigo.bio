@@ -1,0 +1,56 @@
+---
+interface Props {
+    value: string;
+    label: string;
+    sublabel?: string;
+}
+
+const { value, label, sublabel } = Astro.props;
+---
+
+<div class="metric-card outline">
+    <span class="metric-value">{value}</span>
+    <span class="metric-label">{label}</span>
+    {sublabel && <span class="metric-sublabel">{sublabel}</span>}
+</div>
+
+<style>
+    .metric-card {
+        background: var(--color-white);
+        padding: 3rem 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        text-align: center;
+    }
+
+    .metric-value {
+        font-size: clamp(3rem, 8vw, 5rem);
+        font-weight: 800;
+        color: var(--color-swiss-red);
+        line-height: 1;
+    }
+
+    .metric-label {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--color-grey-800);
+    }
+
+    .metric-sublabel {
+        font-size: 0.875rem;
+        color: var(--color-grey-600);
+    }
+
+    @media (max-width: 640px) {
+        .metric-card {
+            padding: 2rem 1rem;
+        }
+
+        .metric-value {
+            font-size: clamp(2.5rem, 10vw, 4rem);
+        }
+    }
+</style>
