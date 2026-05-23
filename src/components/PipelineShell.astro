@@ -1,0 +1,156 @@
+---
+import { getTranslations } from '../i18n/utils';
+
+interface Props {
+    title: string;
+    description: string;
+    target: string;
+    moleculeType: string;
+    status: string;
+    lang: 'en' | 'zh';
+}
+
+const { title, description, target, moleculeType, status, lang } = Astro.props;
+const t = getTranslations(lang);
+---
+
+<div class="pipeline-hero grid-item">
+    <h1 class="pipeline-title">{title}</h1>
+    <p class="pipeline-desc">{description}</p>
+    <span class="status-badge outline">{status}</span>
+</div>
+
+<div class="pipeline-body grid-item">
+    <aside class="key-facts outline">
+        <h2 class="facts-heading">{t('pipeline.status')}</h2>
+        <div class="fact">
+            <span class="fact-label">{t('pipeline.target')}</span>
+            <span class="fact-value">{target}</span>
+        </div>
+        <div class="fact">
+            <span class="fact-label">{t('pipeline.type')}</span>
+            <span class="fact-value">{moleculeType}</span>
+        </div>
+        <div class="fact">
+            <span class="fact-label">{t('pipeline.status')}</span>
+            <span class="fact-value">{status}</span>
+        </div>
+    </aside>
+
+    <div class="pipeline-main">
+        <div class="coming-soon outline">
+            <p>{t('pipeline.coming_soon')}</p>
+        </div>
+    </div>
+</div>
+
+<style>
+    .pipeline-hero {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .pipeline-title {
+        font-size: clamp(3rem, 8vw, 5rem);
+        font-weight: 800;
+        line-height: 1;
+        text-transform: uppercase;
+    }
+
+    .pipeline-desc {
+        font-size: clamp(1.25rem, 3vw, 1.5rem);
+        color: var(--color-grey-700);
+        max-width: 700px;
+        line-height: 1.5;
+    }
+
+    .status-badge {
+        display: inline-block;
+        padding: 0.5rem 1.5rem;
+        font-weight: 700;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        width: fit-content;
+    }
+
+    .pipeline-body {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: var(--grid-gutter);
+    }
+
+    .key-facts {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        background: var(--color-grey-100);
+        height: fit-content;
+    }
+
+    .facts-heading {
+        font-size: 1rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid var(--color-black);
+    }
+
+    .fact {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .fact-label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--color-grey-600);
+    }
+
+    .fact-value {
+        font-size: 1.125rem;
+        font-weight: 600;
+    }
+
+    .coming-soon {
+        padding: 4rem 2rem;
+        text-align: center;
+        background: var(--color-grey-100);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .coming-soon p {
+        font-size: 1.125rem;
+        color: var(--color-grey-600);
+        font-style: italic;
+    }
+
+    @media (max-width: 1024px) {
+        .pipeline-body {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .pipeline-content {
+            padding-top: 6rem;
+            gap: 2rem var(--grid-gutter);
+        }
+
+        .key-facts {
+            padding: 1.5rem;
+        }
+
+        .coming-soon {
+            padding: 2rem 1rem;
+        }
+    }
+</style>
