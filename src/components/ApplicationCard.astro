@@ -1,0 +1,61 @@
+---
+interface Props {
+    title: string;
+    description: string;
+    href?: string;
+}
+
+const { title, description, href } = Astro.props;
+const Tag = href ? 'a' : 'div';
+---
+
+<Tag href={href} class:list={['app-card', 'outline', { 'app-card--link': href }]}>
+    <h3 class="app-card-title">{title}</h3>
+    <p class="app-card-desc">{description}</p>
+    {href && <span class="app-card-arrow">→</span>}
+</Tag>
+
+<style>
+    .app-card {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        background: var(--color-white);
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.2s ease;
+    }
+
+    .app-card--link:hover {
+        background-color: var(--color-grey-100);
+    }
+
+    .app-card-title {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--color-swiss-red);
+    }
+
+    .app-card-desc {
+        color: var(--color-grey-800);
+        line-height: 1.6;
+    }
+
+    .app-card-arrow {
+        font-size: 1.5rem;
+        font-weight: 800;
+        margin-top: auto;
+        transition: transform 0.2s ease;
+    }
+
+    .app-card--link:hover .app-card-arrow {
+        transform: translateX(4px);
+    }
+
+    @media (max-width: 640px) {
+        .app-card {
+            padding: 1.5rem;
+        }
+    }
+</style>
