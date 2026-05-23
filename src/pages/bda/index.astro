@@ -1,0 +1,120 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import MetricCard from '../../components/MetricCard.astro';
+import ApplicationCard from '../../components/ApplicationCard.astro';
+import { getTranslations } from '../../i18n/utils';
+
+const lang = 'en';
+const t = getTranslations(lang);
+---
+<Layout title={`${t('nav.bda')} | BIGO BDA`} lang={lang}>
+    <main class="grid-container bda-content">
+
+        <section class="metrics-hero grid-item">
+            <MetricCard
+                value={t('bda.metric.cycle.value')}
+                label={t('bda.metric.cycle.label')}
+                sublabel={t('bda.metric.cycle.sublabel')}
+            />
+            <MetricCard
+                value={t('bda.metric.cost.value')}
+                label={t('bda.metric.cost.label')}
+            />
+            <MetricCard
+                value={t('bda.metric.industrial.value')}
+                label={t('bda.metric.industrial.label')}
+                sublabel={t('bda.metric.industrial.sublabel')}
+            />
+        </section>
+
+        <div class="tagline-section grid-item">
+            <p class="tagline">{t('bda.hero.tagline')}</p>
+        </div>
+
+        <section class="applications-section grid-item">
+            <h2 class="section-heading">Application Paths</h2>
+            <div class="applications-grid">
+                <ApplicationCard
+                    title={t('bda.drug.title')}
+                    description={t('bda.drug.desc')}
+                />
+                <ApplicationCard
+                    title={t('bda.vaccine.title')}
+                    description={t('bda.vaccine.desc')}
+                />
+                <ApplicationCard
+                    title={t('bda.enzyme.title')}
+                    description={t('bda.enzyme.desc')}
+                />
+            </div>
+        </section>
+
+    </main>
+</Layout>
+
+<style>
+    .bda-content {
+        padding-top: 8rem;
+        padding-bottom: 6rem;
+        gap: 4rem var(--grid-gutter);
+    }
+
+    .metrics-hero {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--grid-gutter);
+    }
+
+    .tagline-section {
+        max-width: 900px;
+    }
+
+    .tagline {
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        font-weight: 800;
+        line-height: 1.3;
+        letter-spacing: -0.01em;
+    }
+
+    .section-heading {
+        font-size: 0.875rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--color-grey-600);
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid var(--color-black);
+    }
+
+    .applications-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--grid-gutter);
+    }
+
+    @media (max-width: 1024px) {
+        .metrics-hero {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .applications-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 640px) {
+        .bda-content {
+            padding-top: 6rem;
+            gap: 3rem var(--grid-gutter);
+        }
+
+        .metrics-hero {
+            grid-template-columns: 1fr;
+        }
+
+        .applications-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
