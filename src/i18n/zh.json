@@ -83,6 +83,7 @@
   "bda.feedback.quote": "失败数据与成功数据同等价值。",
   "bda.workflow.placeholder": "概念可视化 — 即将推出",
   "pipeline.status": "状态",
+  "pipeline.key_facts": "关键信息",
   "pipeline.preclinical": "临床前",
   "pipeline.target": "靶点",
   "pipeline.type": "分子类型",

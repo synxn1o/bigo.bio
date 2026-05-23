@@ -83,6 +83,7 @@
   "bda.feedback.quote": "Failed data is as valuable as successful data.",
   "bda.workflow.placeholder": "Concept Visualization — Coming Soon",
   "pipeline.status": "Status",
+  "pipeline.key_facts": "Key Facts",
   "pipeline.preclinical": "Preclinical",
   "pipeline.target": "Target",
   "pipeline.type": "Molecule Type",
