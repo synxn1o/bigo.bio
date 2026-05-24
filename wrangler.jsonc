@@ -2,6 +2,13 @@
   "name": "bigo-bio",
   "compatibility_date": "2025-01-01",
   "compatibility_flags": ["nodejs_compat"],
+  "kv_namespaces":[
+  {
+    "id": "c59de7df745c4d18a1fbbac5c4d89d80",
+    "title": "bigo-bio-session",
+    "supports_url_encoding": true
+  }
+],
   "observability": {
     "enabled": true,
     "head_sampling_rate": 1,
