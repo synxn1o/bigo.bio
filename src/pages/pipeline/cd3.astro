@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PipelineShell from '../../components/PipelineShell.astro';
+import { getTranslations } from '../../i18n/utils';
+
+const lang = 'en';
+const t = getTranslations(lang);
+---
+<Layout title={`${t('pipeline.cd3.title')} | BIGO BDA`} lang={lang}>
+    <main class="grid-container pipeline-content">
+        <PipelineShell
+            title={t('pipeline.cd3.title')}
+            description={t('pipeline.cd3.desc')}
+            target={t('pipeline.cd3.target')}
+            moleculeType={t('pipeline.cd3.type')}
+            status={t('pipeline.preclinical')}
+            lang={lang}
+        />
+    </main>
+</Layout>
+
+<style>
+    .pipeline-content {
+        padding-top: 8rem;
+        padding-bottom: 6rem;
+        gap: 4rem var(--grid-gutter);
+    }
+</style>
