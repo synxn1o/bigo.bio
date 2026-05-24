@@ -2,6 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import ParticleAnimation from '../components/ParticleAnimation.astro';
+import SDGCard from '../components/SDGCard.astro';
+import PlatformStatement from '../components/PlatformStatement.astro';
+import ProductCard from '../components/ProductCard.astro';
+import CTACard from '../components/CTACard.astro';
 import { getTranslations } from '../i18n/utils';
 
 export const prerender = true;
@@ -20,21 +24,80 @@ const t = getTranslations(lang);
         -->
 
         <div class="vision-section grid-item scroll-reveal">
-            <h2 class="vision-title">{t('vision.title')}</h2>
+            <h2 class="vision-title">{t('hook.question')}</h2>
+            <p class="vision-subtext">{t('hook.subtext')}</p>
         </div>
 
         <div class="pillars-grid grid-item">
-            <div class="pillar outline scroll-reveal">
-                <h3>{t('pillars.drug.title')}</h3>
-                <p>{t('pillars.drug.desc')}</p>
-            </div>
-            <div class="pillar outline scroll-reveal">
-                <h3>{t('pillars.vaccine.title')}</h3>
-                <p>{t('pillars.vaccine.desc')}</p>
-            </div>
-            <div class="pillar outline scroll-reveal">
-                <h3>{t('pillars.enzyme.title')}</h3>
-                <p>{t('pillars.enzyme.desc')}</p>
+            <SDGCard
+                label={t('sdg.hunger.label')}
+                title={t('sdg.hunger.title')}
+                description={t('sdg.hunger.desc')}
+            />
+            <SDGCard
+                label={t('sdg.green.label')}
+                title={t('sdg.green.title')}
+                description={t('sdg.green.desc')}
+            />
+            <SDGCard
+                label={t('sdg.medicine.label')}
+                title={t('sdg.medicine.title')}
+                description={t('sdg.medicine.desc')}
+            />
+        </div>
+
+        <PlatformStatement set:html={t('platform.statement')} />
+
+        <div class="products-stack grid-item">
+            <ProductCard
+                label={t('products.binders.label')}
+                title={t('products.binders.title')}
+                description={t('products.binders.desc')}
+                href="/pipeline/bp326"
+            >
+                <div slot="imageSlot" class="placeholder"><span>Protein Binder 3D Render Placeholder</span></div>
+            </ProductCard>
+
+            <ProductCard
+                label={t('products.nanocage.label')}
+                title={t('products.nanocage.title')}
+                description={t('products.nanocage.desc')}
+                href="/pipeline/ribh"
+            >
+                <div slot="imageSlot" class="placeholder"><span>Nanocage Structure Placeholder</span></div>
+            </ProductCard>
+
+            <ProductCard
+                label={t('products.enzymes.label')}
+                title={t('products.enzymes.title')}
+                description={t('products.enzymes.desc')}
+                href="/pipeline"
+            >
+                <div slot="imageSlot" class="placeholder"><span>Enzyme Fold Structures Placeholder</span></div>
+            </ProductCard>
+        </div>
+
+        <div class="explore-section grid-item scroll-reveal">
+            <h2 class="explore-title">{t('explore.title')}</h2>
+            <div class="pillars-grid">
+                <CTACard
+                    label={t('explore.pipeline.label')}
+                    title={t('explore.pipeline.title')}
+                    subtitle={t('explore.pipeline.subtitle')}
+                    href="/pipeline"
+                />
+                <CTACard
+                    label={t('explore.blog.label')}
+                    title={t('explore.blog.title')}
+                    subtitle={t('explore.blog.subtitle')}
+                    href="/blog"
+                />
+                <CTACard
+                    label={t('explore.team.label')}
+                    title={t('explore.team.title')}
+                    subtitle={t('explore.team.subtitle')}
+                    href="/about"
+                />
             </div>
         </div>
 	</main>
@@ -64,38 +127,35 @@ const t = getTranslations(lang);
         max-width: 900px;
     }
 
+    .vision-subtext {
+        font-size: clamp(1.25rem, 2vw, 1.5rem);
+        color: var(--color-grey-600);
+        margin-top: 1rem;
+        max-width: 800px;
+        line-height: 1.5;
+    }
+
     .pillars-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: var(--grid-gutter);
     }
 
-    .pillar {
-        padding: 2rem;
+    .products-stack {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
-        background: var(--color-white);
+        gap: 2rem;
+        margin: 4rem 0;
     }
 
-    .pillar h3 {
-        font-size: 1.5rem;
+    .explore-section {
+        margin-top: 4rem;
+    }
+
+    .explore-title {
+        font-size: 2rem;
         font-weight: 800;
-        color: var(--color-swiss-red);
-    }
-
-    .pillar p {
-        color: var(--color-grey-800);
-        line-height: 1.6;
-    }
-
-    @supports (animation-timeline: view()) {
-        .pillar:nth-child(2) {
-            animation-range: entry 15% cover 35%;
-        }
-        .pillar:nth-child(3) {
-            animation-range: entry 20% cover 40%;
-        }
+        margin-bottom: 2rem;
     }
 
     @media (max-width: 1024px) {
