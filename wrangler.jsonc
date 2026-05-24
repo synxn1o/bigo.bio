@@ -1,10 +1,5 @@
 {
   "name": "bigo-bio",
-  "main": "dist/server/entry.mjs",
-  "assets": {
-    "binding": "ASSETS",
-    "directory": "dist/client"
-  },
   "compatibility_date": "2025-01-01",
   "compatibility_flags": ["nodejs_compat"],
   "observability": {
