@@ -7,6 +7,7 @@ import PlatformStatement from '../components/PlatformStatement.astro';
 import ProductCard from '../components/ProductCard.astro';
 import CTACard from '../components/CTACard.astro';
 import { getTranslations } from '../i18n/utils';
+import { Image } from 'astro:assets';
 
 export const prerender = true;
 
@@ -30,32 +31,35 @@ const t = getTranslations(lang);
 
         <div class="pillars-grid grid-item">
             <SDGCard
-                label={t('sdg.hunger.label')}
-                title={t('sdg.hunger.title')}
-                description={t('sdg.hunger.desc')}
+                label={t('sdg.medicine.label')}
+                title={t('sdg.medicine.title')}
+                description={t('sdg.medicine.desc')}
             />
+
             <SDGCard
                 label={t('sdg.green.label')}
                 title={t('sdg.green.title')}
                 description={t('sdg.green.desc')}
             />
+
             <SDGCard
-                label={t('sdg.medicine.label')}
-                title={t('sdg.medicine.title')}
-                description={t('sdg.medicine.desc')}
+                label={t('sdg.hunger.label')}
+                title={t('sdg.hunger.title')}
+                description={t('sdg.hunger.desc')}
             />
+            
         </div>
 
         <PlatformStatement set:html={t('platform.statement')} />
 
         <div class="products-stack grid-item">
             <ProductCard
-                label={t('products.binders.label')}
-                title={t('products.binders.title')}
-                description={t('products.binders.desc')}
-                href="/pipeline/bp326"
+                label={t('products.earlydrug.label')}
+                title={t('products.earlydrug.title')}
+                description={t('products.earlydrug.desc')}
+                href="/pipeline/bp-326"
             >
-                <div slot="imageSlot" class="placeholder"><span>Protein Binder 3D Render Placeholder</span></div>
+                <Image slot="imageSlot" src="https://cdn.bigo.bio/images/earlydrug.png" alt="Protein Binder" inferSize={true} loading="lazy" />
             </ProductCard>
 
             <ProductCard
@@ -64,7 +68,7 @@ const t = getTranslations(lang);
                 description={t('products.nanocage.desc')}
                 href="/pipeline/ribh"
             >
-                <div slot="imageSlot" class="placeholder"><span>Nanocage Structure Placeholder</span></div>
+                <Image slot="imageSlot" src="https://cdn.bigo.bio/images/nanocage.png" alt="Nanocage Structure" inferSize={true} loading="lazy" />
             </ProductCard>
 
             <ProductCard
@@ -73,7 +77,7 @@ const t = getTranslations(lang);
                 description={t('products.enzymes.desc')}
                 href="/pipeline"
             >
-                <div slot="imageSlot" class="placeholder"><span>Enzyme Fold Structures Placeholder</span></div>
+                <Image slot="imageSlot" src="https://cdn.bigo.bio/images/enzymes.jpg" alt="Enzyme Fold Structures" inferSize={true} loading="lazy" />
             </ProductCard>
         </div>
 

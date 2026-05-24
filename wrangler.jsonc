@@ -7,7 +7,13 @@
     "binding":"SESSION",
     "id": "c59de7df745c4d18a1fbbac5c4d89d80"
   }
-],
+  ],
+  "r2_buckets":[
+    {
+      "binding":"CDN",
+      "bucket_name":"bigo-assets"
+    }
+  ],
   "observability": {
     "enabled": true,
     "head_sampling_rate": 1,

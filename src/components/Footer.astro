@@ -21,7 +21,7 @@ const t = getTranslations(lang);
             <div class="footer-links">
                 <NavLink href={lang === 'en' ? '/about' : '/zh/about'}>{t('nav.about')}</NavLink>
                 <NavLink href="#">{t('nav.blog')}</NavLink>
-                <NavLink href="#">{t('nav.studio')}</NavLink>
+                <NavLink href={lang === 'en' ? '/bda' : '/zh/bda'}>{t('nav.bda')}</NavLink>
             </div>
         </div>
     </div>

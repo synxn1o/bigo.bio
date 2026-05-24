@@ -1,6 +1,5 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-import MetricCard from '../../../components/MetricCard.astro';
 import ApplicationCard from '../../../components/ApplicationCard.astro';
 import { getTranslations } from '../../../i18n/utils';
 
@@ -12,21 +11,30 @@ const t = getTranslations(lang);
 <Layout title={`${t('nav.bda')} | BIGO BDA`} lang={lang}>
     <main class="grid-container bda-content">
 
-        <section class="metrics-hero grid-item">
-            <MetricCard
-                value={t('bda.metric.cycle.value')}
-                label={t('bda.metric.cycle.label')}
-                sublabel={t('bda.metric.cycle.sublabel')}
-            />
-            <MetricCard
-                value={t('bda.metric.cost.value')}
-                label={t('bda.metric.cost.label')}
-            />
-            <MetricCard
-                value={t('bda.metric.industrial.value')}
-                label={t('bda.metric.industrial.label')}
-                sublabel={t('bda.metric.industrial.sublabel')}
-            />
+        <section class="mission-section grid-item outline">
+            <div class="mission-narrative">
+                <h2 class="flow-text">{t('mission.flow')}</h2>
+                <div class="cycle-box outline bg-swiss-red">
+                    <p class="cycle-text">{t('mission.cycle')}</p>
+                </div>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric outline">
+                    <span class="metric-val">{t('bda.metric.cycle.value')}</span>
+                    <span class="metric-lbl">{t('bda.metric.cycle.label')}</span>
+                    <span class="metric-sub">{t('bda.metric.cycle.sublabel')}</span>
+                </div>
+                <div class="metric outline">
+                    <span class="metric-val">{t('bda.metric.cost.value')}</span>
+                    <span class="metric-lbl">{t('bda.metric.cost.label')}</span>
+                </div>
+                <div class="metric outline">
+                    <span class="metric-val">{t('bda.metric.industrial.value')}</span>
+                    <span class="metric-lbl">{t('bda.metric.industrial.label')}</span>
+                    <span class="metric-sub">{t('bda.metric.industrial.sublabel')}</span>
+                </div>
+            </div>
         </section>
 
         <div class="tagline-section grid-item">
@@ -61,12 +69,6 @@ const t = getTranslations(lang);
         gap: 4rem var(--grid-gutter);
     }
 
-    .metrics-hero {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: var(--grid-gutter);
-    }
-
     .tagline-section {
         max-width: 900px;
     }
@@ -95,13 +97,90 @@ const t = getTranslations(lang);
         gap: var(--grid-gutter);
     }
 
+    .mission-section {
+        padding: 4rem;
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+        background: var(--color-grey-100);
+    }
+
+    .mission-narrative {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .flow-text {
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        font-weight: 800;
+        letter-spacing: 0.05em;
+    }
+
+    .cycle-box {
+        padding: 1.5rem 3rem;
+        display: inline-block;
+    }
+
+    .cycle-text {
+        font-size: 1.25rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--color-white);
+    }
+
+    .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--grid-gutter);
+    }
+
+    .metric {
+        background: var(--color-white);
+        padding: 3rem 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        text-align: center;
+    }
+
+    .metric-val {
+        font-size: clamp(3rem, 6vw, 4.5rem);
+        font-weight: 800;
+        color: var(--color-swiss-red);
+        line-height: 1;
+    }
+
+    .metric-lbl {
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: var(--color-black);
+    }
+
+    .metric-sub {
+        font-size: 0.875rem;
+        color: var(--color-grey-600);
+        font-weight: 500;
+    }
+
     @media (max-width: 1024px) {
-        .metrics-hero {
+        .metrics-grid {
             grid-template-columns: repeat(2, 1fr);
         }
 
         .applications-grid {
             grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .metrics-grid {
+            grid-template-columns: 1fr;
         }
     }
 
@@ -111,12 +190,20 @@ const t = getTranslations(lang);
             gap: 3rem var(--grid-gutter);
         }
 
-        .metrics-hero {
+        .applications-grid {
             grid-template-columns: 1fr;
         }
 
-        .applications-grid {
-            grid-template-columns: 1fr;
+        .mission-section {
+            padding: 2rem 1rem;
+        }
+
+        .cycle-box {
+            padding: 1rem;
+        }
+
+        .cycle-text {
+            font-size: 1rem;
         }
     }
 </style>

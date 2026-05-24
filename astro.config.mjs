@@ -12,5 +12,8 @@ export default defineConfig({
     routing: {
         prefixDefaultLocale: false
     }
+  },
+  image: {
+    domains: ['cdn.bigo.bio'],
   }
 });

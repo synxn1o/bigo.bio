@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
   name: string;
   role: string;
@@ -9,10 +11,9 @@ interface Props {
 const { name, role, bio, imageSrc = "/favicon.svg" } = Astro.props;
 ---
 
-<div class="team-member outline">
+<div class="team-member outline scroll-reveal">
     <div class="image-container">
-        <!-- Using favicon as a placeholder image -->
-        <img src={imageSrc} alt={name} loading="lazy" />
+        <Image src={imageSrc} alt={name} inferSize={true} loading="lazy" />
     </div>
     <div class="info">
         <h3 class="name">{name}</h3>
@@ -26,6 +27,26 @@ const { name, role, bio, imageSrc = "/favicon.svg" } = Astro.props;
         display: flex;
         flex-direction: column;
         background: var(--color-white);
+        transition: all 0.2s ease-in-out;
+        position: relative;
+    }
+
+    .team-member:hover {
+        z-index: 10;
+    }
+
+    .team-member::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border: 0 solid var(--color-black);
+        pointer-events: none;
+        transition: all 0.2s ease-in-out;
+        z-index: 2;
+    }
+
+    .team-member:hover::after {
+        border-width: 4px;
     }
     
     .image-container {
@@ -33,17 +54,22 @@ const { name, role, bio, imageSrc = "/favicon.svg" } = Astro.props;
         aspect-ratio: 1 / 1;
         border-bottom: 1px solid var(--color-black);
         background: var(--color-grey-100);
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        position: relative;
         overflow: hidden;
     }
 
-    .image-container img {
+    .image-container :global(img) {
+        position: absolute;
+        inset: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;
-        filter: grayscale(100%) contrast(1.2);
+        filter: grayscale(100%);
+        transition: filter 0.4s ease-in-out;
+    }
+
+    .team-member:hover .image-container :global(img) {
+        filter: grayscale(0%);
     }
 
     .info {

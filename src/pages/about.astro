@@ -21,37 +21,20 @@ const t = getTranslations(lang);
                     name={t('team.zerong.name')}
                     role={t('team.zerong.role')}
                     bio={t('team.zerong.bio')}
+                    imageSrc="https://cdn.bigo.bio/images/team/sun-zerong.png"
                 />
                 <TeamMember
                     name={t('team.zhe.name')}
                     role={t('team.zhe.role')}
                     bio={t('team.zhe.bio')}
+                    imageSrc="https://cdn.bigo.bio/images/team/li-zhe.png"
                 />
                 <TeamMember
                     name={t('team.yuze.name')}
                     role={t('team.yuze.role')}
                     bio={t('team.yuze.bio')}
+                    imageSrc="https://cdn.bigo.bio/images/team/sun-yuze.png"
                 />
-            </div>
-        </section>
-
-        <section class="mission-section grid-item outline">
-            <div class="mission-narrative">
-                <h2 class="flow-text">{t('mission.flow')}</h2>
-                <div class="cycle-box outline bg-swiss-red">
-                    <p class="cycle-text">{t('mission.cycle')}</p>
-                </div>
-            </div>
-
-            <div class="metrics-grid">
-                <div class="metric outline">
-                    <span class="metric-val">8mo</span>
-                    <span class="metric-lbl">{t('mission.metrics.time')}</span>
-                </div>
-                <div class="metric outline">
-                    <span class="metric-val">70%</span>
-                    <span class="metric-lbl">{t('mission.metrics.cost')}</span>
-                </div>
             </div>
         </section>
 
@@ -79,70 +62,6 @@ const t = getTranslations(lang);
         gap: var(--grid-gutter);
     }
 
-    .mission-section {
-        padding: 4rem;
-        display: flex;
-        flex-direction: column;
-        gap: 4rem;
-        background: var(--color-grey-100);
-    }
-
-    .mission-narrative {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-        text-align: center;
-    }
-
-    .flow-text {
-        font-size: clamp(1.5rem, 4vw, 2.5rem);
-        font-weight: 800;
-        letter-spacing: 0.05em;
-    }
-
-    .cycle-box {
-        padding: 1.5rem 3rem;
-        display: inline-block;
-    }
-
-    .cycle-text {
-        font-size: 1.25rem;
-        font-weight: 800;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-    }
-
-    .metrics-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--grid-gutter);
-    }
-
-    .metric {
-        background: var(--color-white);
-        padding: 3rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-        text-align: center;
-    }
-
-    .metric-val {
-        font-size: clamp(3rem, 8vw, 5rem);
-        font-weight: 800;
-        color: var(--color-swiss-red);
-        line-height: 1;
-    }
-
-    .metric-lbl {
-        font-size: 1.25rem;
-        font-weight: 600;
-        color: var(--color-grey-800);
-    }
-
     @media (max-width: 1024px) {
         .team-grid {
             grid-template-columns: repeat(2, 1fr);
@@ -152,18 +71,6 @@ const t = getTranslations(lang);
     @media (max-width: 640px) {
         .team-grid {
             grid-template-columns: 1fr;
-        }
-        .mission-section {
-            padding: 2rem 1rem;
-        }
-        .metrics-grid {
-            grid-template-columns: 1fr;
-        }
-        .cycle-box {
-            padding: 1rem;
-        }
-        .cycle-text {
-            font-size: 1rem;
         }
     }
 </style>

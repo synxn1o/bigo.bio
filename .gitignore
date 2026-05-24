@@ -1,4 +1,4 @@
-.env
+*.env*
 .claude/
 .wrangler/
 CLAUDE.md
@@ -9,3 +9,5 @@ node_modules/
 .superpowers/
 temp/
 dist/
+.vscode/
+images/
