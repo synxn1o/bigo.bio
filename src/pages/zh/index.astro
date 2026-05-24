@@ -13,24 +13,26 @@ const t = getTranslations(lang);
 	<main class="grid-container main-content">
         <Hero lang={lang} />
 
+        <!--
         <div class="animation-wrapper grid-item">
             <ParticleAnimation />
         </div>
+        -->
 
-        <div class="vision-section grid-item">
+        <div class="vision-section grid-item scroll-reveal">
             <h2 class="vision-title">{t('vision.title')}</h2>
         </div>
 
         <div class="pillars-grid grid-item">
-            <div class="pillar outline">
+            <div class="pillar outline scroll-reveal">
                 <h3>{t('pillars.drug.title')}</h3>
                 <p>{t('pillars.drug.desc')}</p>
             </div>
-            <div class="pillar outline">
+            <div class="pillar outline scroll-reveal">
                 <h3>{t('pillars.vaccine.title')}</h3>
                 <p>{t('pillars.vaccine.desc')}</p>
             </div>
-            <div class="pillar outline">
+            <div class="pillar outline scroll-reveal">
                 <h3>{t('pillars.enzyme.title')}</h3>
                 <p>{t('pillars.enzyme.desc')}</p>
             </div>
@@ -85,6 +87,15 @@ const t = getTranslations(lang);
     .pillar p {
         color: var(--color-grey-800);
         line-height: 1.6;
+    }
+
+    @supports (animation-timeline: view()) {
+        .pillar:nth-child(2) {
+            animation-range: entry 15% cover 35%;
+        }
+        .pillar:nth-child(3) {
+            animation-range: entry 20% cover 40%;
+        }
     }
 
     @media (max-width: 1024px) {
