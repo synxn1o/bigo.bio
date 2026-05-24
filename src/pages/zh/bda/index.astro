@@ -4,6 +4,8 @@ import MetricCard from '../../../components/MetricCard.astro';
 import ApplicationCard from '../../../components/ApplicationCard.astro';
 import { getTranslations } from '../../../i18n/utils';
 
+export const prerender = true;
+
 const lang = 'zh';
 const t = getTranslations(lang);
 ---

@@ -3,6 +3,8 @@ import Layout from '../../../layouts/Layout.astro';
 import WorkflowStep from '../../../components/WorkflowStep.astro';
 import { getTranslations } from '../../../i18n/utils';
 
+export const prerender = true;
+
 const lang = 'zh';
 const t = getTranslations(lang);
 ---

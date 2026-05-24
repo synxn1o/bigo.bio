@@ -3,6 +3,8 @@ import Layout from '../../layouts/Layout.astro';
 import PipelineShell from '../../components/PipelineShell.astro';
 import { getTranslations } from '../../i18n/utils';
 
+export const prerender = true;
+
 const lang = 'en';
 const t = getTranslations(lang);
 ---
