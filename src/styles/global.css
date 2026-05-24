@@ -48,6 +48,28 @@ html, body {
 .bg-swiss-red { background-color: var(--color-swiss-red); color: var(--color-white); }
 .text-swiss-red { color: var(--color-swiss-red); }
 
+/* Scroll Reveal Animation */
+@keyframes reveal-fly-in {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Scroll Reveal Utility */
+@supports (animation-timeline: view()) {
+  .scroll-reveal {
+    animation-name: reveal-fly-in;
+    animation-fill-mode: both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 30%;
+  }
+}
+
 /* Modular Grid System */
 .grid-container {
   max-width: var(--max-width);
