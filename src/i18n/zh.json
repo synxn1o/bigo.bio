@@ -130,5 +130,21 @@
   "explore.blog.subtitle": "研究更新与见解",
   "explore.team.label": "团队",
   "explore.team.title": "我们是谁",
-  "explore.team.subtitle": "8 名研究员，30+ 篇出版物"
+  "explore.team.subtitle": "8 名研究员，30+ 篇出版物",
+  "pipeline.overview.title": "平台管线",
+  "pipeline.overview.hero_desc": "驱动下一代生物治疗。BIGO BDA 平台加速发现，以空前的速度和信心交付新型分子。",
+  "pipeline.overview.proof.eyebrow": "早期概念验证",
+  "pipeline.overview.proof.title": "BP326 证明 Bigo 正在构建一个有效的工作闭环，而不仅仅是一个模型概念。",
+  "pipeline.overview.roster.title": "我们的管线",
+  "pipeline.bp326.metrics.title": "关键指标",
+  "pipeline.bp326.metrics.desc": "内部大分子结合数据及结构验证细节。",
+  "pipeline.bp326.metric.aa": "~200",
+  "pipeline.bp326.metric.aa.label": "氨基酸",
+  "pipeline.bp326.metric.time": "~3",
+  "pipeline.bp326.metric.time.label": "个月",
+  "pipeline.bp326.metric.time.sub": "开发周期",
+  "pipeline.bp326.metric.affinity": "nM",
+  "pipeline.bp326.metric.affinity.label": "级结合数据",
+  "pipeline.bp326.methodology.title": "方法论",
+  "pipeline.bp326.methodology.desc": "计算设计、表达、纯化、亲和力验证与数据工程集成于高标准技术生产工作流中。通过严谨的湿实验验证与生成评分，实现高置信度的交付。"
 }

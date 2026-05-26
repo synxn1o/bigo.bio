@@ -130,5 +130,21 @@
   "explore.blog.subtitle": "Research updates and insights",
   "explore.team.label": "Team",
   "explore.team.title": "Who we are",
-  "explore.team.subtitle": "8 researchers, 30+ publications"
+  "explore.team.subtitle": "8 researchers, 30+ publications",
+  "pipeline.overview.title": "Platform Pipeline",
+  "pipeline.overview.hero_desc": "Driving the next generation of biotherapeutics. The BIGO BDA platform accelerates discovery to deliver novel molecules with unprecedented speed and confidence.",
+  "pipeline.overview.proof.eyebrow": "Early proof points",
+  "pipeline.overview.proof.title": "BP326 shows Bigo is building a working loop, not a model-only concept.",
+  "pipeline.overview.roster.title": "Our Pipeline",
+  "pipeline.bp326.metrics.title": "Key Metrics",
+  "pipeline.bp326.metrics.desc": "Internal molecular binding data and structural validation details.",
+  "pipeline.bp326.metric.aa": "~200",
+  "pipeline.bp326.metric.aa.label": "Amino Acids",
+  "pipeline.bp326.metric.time": "~3",
+  "pipeline.bp326.metric.time.label": "Months",
+  "pipeline.bp326.metric.time.sub": "Development Time",
+  "pipeline.bp326.metric.affinity": "nM",
+  "pipeline.bp326.metric.affinity.label": "Level Binding Data",
+  "pipeline.bp326.methodology.title": "Methodology",
+  "pipeline.bp326.methodology.desc": "Computational design, expression, purification, affinity validation, and data engineering integrated into a technical production workflow. Highly confident outputs achieved through rigorous wet-lab validation and generation scoring."
 }
