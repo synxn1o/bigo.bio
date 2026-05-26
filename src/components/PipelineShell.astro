@@ -38,9 +38,11 @@ const t = getTranslations(lang);
     </aside>
 
     <div class="pipeline-main">
-        <div class="coming-soon outline">
-            <p>{t('pipeline.coming_soon')}</p>
-        </div>
+        <slot>
+            <div class="coming-soon outline">
+                <p>{t('pipeline.coming_soon')}</p>
+            </div>
+        </slot>
     </div>
 </div>
 
