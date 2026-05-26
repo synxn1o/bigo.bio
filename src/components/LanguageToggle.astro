@@ -56,12 +56,46 @@ const { lang } = Astro.props;
 </style>
 
 <script>
+    const LOCALES = ['en', 'zh'];
+    const DEFAULT_LOCALE = 'en';
+
     document.querySelectorAll('.lang-link').forEach(link => {
         link.addEventListener('click', (e) => {
-            const lang = (e.currentTarget as HTMLElement).getAttribute('data-lang');
-            if (lang) {
-                document.cookie = `preferred-lang=${lang}; path=/; max-age=31536000`;
+            e.preventDefault();
+            const targetLang = (e.currentTarget as HTMLElement).getAttribute('data-lang');
+            if (!targetLang) return;
+
+            // Set preference cookie
+            document.cookie = `preferred-lang=${targetLang}; path=/; max-age=31536000`;
+
+            const currentPath = window.location.pathname;
+            const currentSearch = window.location.search;
+            const currentHash = window.location.hash;
+
+            let newPath = currentPath;
+
+            // 1. Strip existing locale prefix
+            // Assuming prefix is always at the start like /zh/ or is just /zh
+            for (const locale of LOCALES) {
+                if (locale === DEFAULT_LOCALE) continue;
+                const prefix = `/${locale}`;
+                if (currentPath.startsWith(prefix + '/') || currentPath === prefix) {
+                    newPath = currentPath.replace(prefix, '') || '/';
+                    break;
+                }
             }
+
+            // 2. Add target locale prefix if not default
+            if (targetLang !== DEFAULT_LOCALE) {
+                const prefix = `/${targetLang}`;
+                newPath = prefix + (newPath === '/' ? '/' : newPath);
+            }
+
+            // 3. Normalize path (ensure no double slashes)
+            newPath = newPath.replace(/\/+/g, '/');
+
+            // 4. Redirect
+            window.location.href = `${newPath}${currentSearch}${currentHash}`;
         });
     });
 </script>
