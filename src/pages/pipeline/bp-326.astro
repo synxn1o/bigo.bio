@@ -1,7 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import PipelineShell from '../../components/PipelineShell.astro';
+import MetricCard from '../../components/MetricCard.astro';
 import { getTranslations } from '../../i18n/utils';
+import { Image } from 'astro:assets';
 
 export const prerender = true;
 
@@ -17,7 +19,36 @@ const t = getTranslations(lang);
             moleculeType={t('pipeline.bp326.type')}
             status={t('pipeline.preclinical')}
             lang={lang}
-        />
+        >
+            <div class="bp-details">
+                <!-- Metrics & Image Container -->
+                <div class="detail-container outline">
+                    <div class="detail-text">
+                        <h3>{t('pipeline.bp326.metrics.title')}</h3>
+                        <p>{t('pipeline.bp326.metrics.desc')}</p>
+                        <div class="metrics-list">
+                            <MetricCard value={t('pipeline.bp326.metric.aa')} label={t('pipeline.bp326.metric.aa.label')} />
+                            <MetricCard value={t('pipeline.bp326.metric.time')} label={t('pipeline.bp326.metric.time.label')} sublabel={t('pipeline.bp326.metric.time.sub')} />
+                            <MetricCard value={t('pipeline.bp326.metric.affinity')} label={t('pipeline.bp326.metric.affinity.label')} />
+                        </div>
+                    </div>
+                    <div class="detail-image">
+                        <Image src="https://cdn.bigo.bio/images/bp326.png" alt="BP326 Structure" inferSize={true} />
+                    </div>
+                </div>
+
+                <!-- Methodology Container -->
+                <div class="detail-container outline">
+                    <div class="detail-text">
+                        <h3>{t('pipeline.bp326.methodology.title')}</h3>
+                        <p>{t('pipeline.bp326.methodology.desc')}</p>
+                    </div>
+                    <div class="detail-image">
+                        <Image src="https://cdn.bigo.bio/images/bp326_method.png" alt="BP326 Methodology" inferSize={true} />
+                    </div>
+                </div>
+            </div>
+        </PipelineShell>
     </main>
 </Layout>
 
@@ -26,5 +57,81 @@ const t = getTranslations(lang);
         padding-top: 8rem;
         padding-bottom: 6rem;
         gap: 4rem var(--grid-gutter);
+    }
+    
+    .bp-details {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .detail-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background: var(--color-white);
+        overflow: hidden;
+    }
+
+    .detail-text {
+        padding: 3rem;
+        border-right: 1px solid var(--color-black);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .detail-text h3 {
+        font-size: 1.5rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+    }
+
+    .detail-text p {
+        font-size: 1.125rem;
+        color: var(--color-grey-700);
+        margin-bottom: 2rem;
+        line-height: 1.6;
+    }
+
+    .metrics-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .detail-image {
+        position: relative;
+        background: var(--color-grey-100);
+        min-height: 400px;
+        overflow: hidden;
+    }
+
+    .detail-image img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(100%);
+        transition: filter 0.4s ease-in-out;
+    }
+
+    .detail-container:hover .detail-image img {
+        filter: grayscale(0%);
+    }
+
+    @media (max-width: 768px) {
+        .detail-container {
+            grid-template-columns: 1fr;
+        }
+        .detail-text {
+            border-right: none;
+            border-bottom: 1px solid var(--color-black);
+            padding: 2rem;
+        }
+        .detail-image {
+            min-height: 300px;
+        }
     }
 </style>
