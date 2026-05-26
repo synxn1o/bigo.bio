@@ -146,5 +146,7 @@
   "pipeline.bp326.metric.affinity": "nM",
   "pipeline.bp326.metric.affinity.label": "级结合数据",
   "pipeline.bp326.methodology.title": "方法论",
-  "pipeline.bp326.methodology.desc": "计算设计、表达、纯化、亲和力验证与数据工程集成于高标准技术生产工作流中。通过严谨的湿实验验证与生成评分，实现高置信度的交付。"
+  "pipeline.bp326.methodology.desc": "计算设计、表达、纯化、亲和力验证与数据工程集成于高标准技术生产工作流中。通过严谨的湿实验验证与生成评分，实现高置信度的交付。",
+  "pipeline.discovery": "早期发现",
+  "pipeline.overview.proof.cta": "查看 BP326 详情 →"
 }

@@ -146,5 +146,7 @@
   "pipeline.bp326.metric.affinity": "nM",
   "pipeline.bp326.metric.affinity.label": "Level Binding Data",
   "pipeline.bp326.methodology.title": "Methodology",
-  "pipeline.bp326.methodology.desc": "Computational design, expression, purification, affinity validation, and data engineering integrated into a technical production workflow. Highly confident outputs achieved through rigorous wet-lab validation and generation scoring."
+  "pipeline.bp326.methodology.desc": "Computational design, expression, purification, affinity validation, and data engineering integrated into a technical production workflow. Highly confident outputs achieved through rigorous wet-lab validation and generation scoring.",
+  "pipeline.discovery": "Discovery",
+  "pipeline.overview.proof.cta": "View BP326 Detail →"
 }

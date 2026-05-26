@@ -19,7 +19,9 @@ describe('Pipeline Content Translations', () => {
         'pipeline.bp326.metric.affinity',
         'pipeline.bp326.metric.affinity.label',
         'pipeline.bp326.methodology.title',
-        'pipeline.bp326.methodology.desc'
+        'pipeline.bp326.methodology.desc',
+        'pipeline.discovery',
+        'pipeline.overview.proof.cta'
     ];
 
     it('should have all required pipeline keys in EN', () => {

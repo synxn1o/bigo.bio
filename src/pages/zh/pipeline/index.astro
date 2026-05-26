@@ -22,7 +22,7 @@ const t = getTranslations(lang);
             <div class="proof-header">
                 <p class="eyebrow">{t('pipeline.overview.proof.eyebrow')}</p>
                 <h2>{t('pipeline.overview.proof.title')}</h2>
-                <a href="/zh/pipeline/bp-326" class="proof-cta outline">查看 BP326 详情 →</a>
+                <a href="/zh/pipeline/bp-326" class="proof-cta outline">{t('pipeline.overview.proof.cta')}</a>
             </div>
             <div class="proof-metrics">
                 <MetricCard value={t('pipeline.bp326.metric.aa')} label={t('pipeline.bp326.metric.aa.label')} />
@@ -44,7 +44,7 @@ const t = getTranslations(lang);
                     <div slot="imageSlot" class="pipeline-image-ph">BP326</div>
                 </ProductCard>
                 <ProductCard
-                    label="Discovery"
+                    label={t('pipeline.discovery')}
                     title={t('pipeline.cd3.title')}
                     description={t('pipeline.cd3.desc')}
                     href="/zh/pipeline/cd3"
@@ -52,7 +52,7 @@ const t = getTranslations(lang);
                     <div slot="imageSlot" class="pipeline-image-ph">CD3+</div>
                 </ProductCard>
                 <ProductCard
-                    label="Discovery"
+                    label={t('pipeline.discovery')}
                     title={t('pipeline.ribh.title')}
                     description={t('pipeline.ribh.desc')}
                     href="/zh/pipeline/ribh"
