@@ -1,0 +1,168 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MetricCard from '../../../components/MetricCard.astro';
+import ProductCard from '../../../components/ProductCard.astro';
+import { getTranslations } from '../../../i18n/utils';
+
+export const prerender = true;
+
+const lang = 'zh';
+const t = getTranslations(lang);
+---
+<Layout title={`${t('pipeline.overview.title')} | BIGO BDA`} lang={lang}>
+    <main class="grid-container pipeline-overview">
+        <!-- Hero Section -->
+        <section class="hero grid-item outline">
+            <h1 class="pipeline-title">{t('pipeline.overview.title')}</h1>
+            <p class="pipeline-desc">{t('pipeline.overview.hero_desc')}</p>
+        </section>
+
+        <!-- Platform Validation -->
+        <section class="proof-section grid-item outline">
+            <div class="proof-header">
+                <p class="eyebrow">{t('pipeline.overview.proof.eyebrow')}</p>
+                <h2>{t('pipeline.overview.proof.title')}</h2>
+                <a href="/zh/pipeline/bp-326" class="proof-cta outline">查看 BP326 详情 →</a>
+            </div>
+            <div class="proof-metrics">
+                <MetricCard value={t('pipeline.bp326.metric.aa')} label={t('pipeline.bp326.metric.aa.label')} />
+                <MetricCard value={t('pipeline.bp326.metric.time')} label={t('pipeline.bp326.metric.time.label')} sublabel={t('pipeline.bp326.metric.time.sub')} />
+                <MetricCard value={t('pipeline.bp326.metric.affinity')} label={t('pipeline.bp326.metric.affinity.label')} />
+            </div>
+        </section>
+
+        <!-- Pipeline Roster -->
+        <section class="roster-section grid-item">
+            <h2 class="section-heading">{t('pipeline.overview.roster.title')}</h2>
+            <div class="roster-grid">
+                <ProductCard
+                    label={t('pipeline.preclinical')}
+                    title={t('pipeline.bp326.title')}
+                    description={t('pipeline.bp326.desc')}
+                    href="/zh/pipeline/bp-326"
+                >
+                    <div slot="imageSlot" class="pipeline-image-ph">BP326</div>
+                </ProductCard>
+                <ProductCard
+                    label="Discovery"
+                    title={t('pipeline.cd3.title')}
+                    description={t('pipeline.cd3.desc')}
+                    href="/zh/pipeline/cd3"
+                >
+                    <div slot="imageSlot" class="pipeline-image-ph">CD3+</div>
+                </ProductCard>
+                <ProductCard
+                    label="Discovery"
+                    title={t('pipeline.ribh.title')}
+                    description={t('pipeline.ribh.desc')}
+                    href="/zh/pipeline/ribh"
+                >
+                    <div slot="imageSlot" class="pipeline-image-ph">RibH</div>
+                </ProductCard>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    .pipeline-overview {
+        padding-top: 8rem;
+        padding-bottom: 6rem;
+        gap: 4rem var(--grid-gutter);
+    }
+    .hero {
+        padding: 4rem;
+        background: var(--color-grey-100);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    .pipeline-title {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 800;
+        text-transform: uppercase;
+        margin: 0;
+    }
+    .pipeline-desc {
+        font-size: 1.25rem;
+        color: var(--color-grey-800);
+        max-width: 800px;
+        line-height: 1.6;
+    }
+    .proof-section {
+        padding: 4rem;
+        background: var(--color-white);
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+    .proof-header {
+        max-width: 800px;
+    }
+    .eyebrow {
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--color-swiss-red);
+        margin-bottom: 1rem;
+    }
+    .proof-header h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+        margin-bottom: 2rem;
+        line-height: 1.2;
+    }
+    .proof-cta {
+        display: inline-block;
+        padding: 1rem 2rem;
+        text-decoration: none;
+        color: var(--color-black);
+        font-weight: 700;
+        transition: background 0.2s, color 0.2s;
+    }
+    .proof-cta:hover {
+        background: var(--color-black);
+        color: var(--color-white);
+    }
+    .proof-metrics {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--grid-gutter);
+    }
+    .section-heading {
+        font-size: 0.875rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--color-grey-600);
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid var(--color-black);
+    }
+    .roster-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .pipeline-image-ph {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--color-grey-200);
+        color: var(--color-grey-500);
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+    @media (max-width: 768px) {
+        .proof-metrics {
+            grid-template-columns: 1fr;
+        }
+        .hero, .proof-section {
+            padding: 2rem;
+        }
+    }
+</style>
