@@ -21,7 +21,9 @@ describe('Pipeline Content Translations', () => {
         'pipeline.bp326.methodology.title',
         'pipeline.bp326.methodology.desc',
         'pipeline.discovery',
-        'pipeline.overview.proof.cta'
+        'pipeline.overview.proof.cta',
+        'nav.pipeline.overview',
+        'nav.pipeline.overview.desc'
     ];
 
     it('should have all required pipeline keys in EN', () => {

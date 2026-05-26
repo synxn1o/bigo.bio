@@ -44,6 +44,8 @@
   "nav.pipeline.ribh.desc": "Nanocage vaccine display platform",
   "nav.pipeline.cd3": "CD3+",
   "nav.pipeline.cd3.desc": "T-cell engager binding protein",
+  "nav.pipeline.overview": "Overview",
+  "nav.pipeline.overview.desc": "Platform capabilities and pipeline strategy",
   "bda.hero.tagline": "AI-driven protein design automation — from sequence to structure to function",
   "bda.metric.cycle.value": "8mo",
   "bda.metric.cycle.label": "R&D Cycle",

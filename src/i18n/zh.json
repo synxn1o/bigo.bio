@@ -44,6 +44,8 @@
   "nav.pipeline.ribh.desc": "纳米笼疫苗展示平台",
   "nav.pipeline.cd3": "CD3+",
   "nav.pipeline.cd3.desc": "T 细胞衔接结合蛋白",
+  "nav.pipeline.overview": "概览",
+  "nav.pipeline.overview.desc": "平台能力与管线策略",
   "bda.hero.tagline": "AI 驱动的蛋白质设计自动化 — 从序列到结构到功能",
   "bda.metric.cycle.value": "8 个月",
   "bda.metric.cycle.label": "研发周期",
