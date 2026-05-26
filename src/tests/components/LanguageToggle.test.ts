@@ -40,6 +40,6 @@ describe('LanguageToggle Component', () => {
   it('should include client-side script for cookie persistence', () => {
     const content = fs.readFileSync(componentPath, 'utf8');
     expect(content).toContain('<script>');
-    expect(content).toContain('document.cookie = `preferred-lang=${lang}; path=/; max-age=31536000`');
+    expect(content).toContain('document.cookie = `preferred-lang=${targetLang}; path=/; max-age=31536000`');
   });
 });

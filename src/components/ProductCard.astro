@@ -8,11 +8,11 @@ interface Props {
 
 const { label, title, description, href } = Astro.props;
 ---
-<a href={href} class="product-card grid-item outline scroll-reveal">
+<a href={href} class="product-card grid-item outline">
   <div class="content-side">
     <span class="label">{label}</span>
     <h3>{title}</h3>
-    <p>{description}</p>
+    <p class="scroll-reveal">{description}</p>
   </div>
   <div class="image-side">
     <slot name="imageSlot">
@@ -35,7 +35,7 @@ const { label, title, description, href } = Astro.props;
     background: var(--color-white);
     transition: all 0.2s ease-in-out;
     position: relative;
-    overflow: hidden;
+    overflow: clip;
   }
 
   .product-card:hover,
@@ -93,7 +93,7 @@ const { label, title, description, href } = Astro.props;
     align-self: stretch;
     min-height: 0;
     position: relative;
-    overflow: hidden;
+    overflow: clip;
   }
 
   .image-side :global(img) {

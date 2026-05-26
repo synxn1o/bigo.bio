@@ -1,5 +1,5 @@
 {
-  "site.title": "BIGO BDA Platform",
+  "site.title": "BIGO Biologics",
   "hero.title_part1": "The ",
   "hero.title_highlight": "next industrial revolution",
   "hero.title_part2": " will be written in proteins.",
@@ -17,6 +17,7 @@
   "pillars.enzyme.title": "Industrial Enzymes",
   "pillars.enzyme.desc": "PoC for optimized enzyme activity and structural materials for green manufacturing.",
   "about.title": "About Bigo Biologics",
+  "about.join-us": "Bigo is seeking early discovery teams, healthcare investors, strategic partners, and validation collaborators.",
   "team.zerong.name": "Sun Zerong",
   "team.zerong.role": "Co-founder / CEO",
   "team.zerong.bio": "Biomedical Engineering, SUSTech. UC Berkeley visiting scholar. JHU PhD candidate (quit).",

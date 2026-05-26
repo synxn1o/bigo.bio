@@ -7,10 +7,10 @@ interface Props {
 
 const { label, title, description } = Astro.props;
 ---
-<div class="sdg-card outline scroll-reveal">
+<div class="sdg-card outline">
   <span class="label">{label}</span>
   <h3>{title}</h3>
-  <p>{description}</p>
+  <p class="scroll-reveal">{description}</p>
 </div>
 
 <style>
@@ -29,7 +29,7 @@ const { label, title, description } = Astro.props;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--color-swiss-red, #ff0000);
+    color: var(--color-grey-800, #808080);
   }
 
   .sdg-card h3 {
