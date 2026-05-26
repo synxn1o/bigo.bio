@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import ApplicationCard from '../../../components/ApplicationCard.astro';
+import MetricCard from '../../../components/MetricCard.astro';
 import { getTranslations } from '../../../i18n/utils';
 
 export const prerender = true;
@@ -20,20 +21,9 @@ const t = getTranslations(lang);
             </div>
 
             <div class="metrics-grid">
-                <div class="metric outline">
-                    <span class="metric-val">{t('bda.metric.cycle.value')}</span>
-                    <span class="metric-lbl">{t('bda.metric.cycle.label')}</span>
-                    <span class="metric-sub">{t('bda.metric.cycle.sublabel')}</span>
-                </div>
-                <div class="metric outline">
-                    <span class="metric-val">{t('bda.metric.cost.value')}</span>
-                    <span class="metric-lbl">{t('bda.metric.cost.label')}</span>
-                </div>
-                <div class="metric outline">
-                    <span class="metric-val">{t('bda.metric.industrial.value')}</span>
-                    <span class="metric-lbl">{t('bda.metric.industrial.label')}</span>
-                    <span class="metric-sub">{t('bda.metric.industrial.sublabel')}</span>
-                </div>
+                <MetricCard value={t('bda.metric.cycle.value')} label={t('bda.metric.cycle.label')} sublabel={t('bda.metric.cycle.sublabel')} />
+                <MetricCard value={t('bda.metric.cost.value')} label={t('bda.metric.cost.label')} />
+                <MetricCard value={t('bda.metric.industrial.value')} label={t('bda.metric.industrial.label')} sublabel={t('bda.metric.industrial.sublabel')} />
             </div>
         </section>
 
