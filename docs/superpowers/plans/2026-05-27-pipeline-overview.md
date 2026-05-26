@@ -55,7 +55,7 @@ describe('Pipeline Content Translations', () => {
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `npx vitest run tests/pipeline-content.test.ts`
+Run: `bunx vitest run tests/pipeline-content.test.ts`
 Expected: FAIL (keys not found)
 
 - [ ] **Step 3: Update `src/i18n/en.json` with English keys**
@@ -149,7 +149,7 @@ Add these to the bottom of the JSON object:
 
 - [ ] **Step 5: Run test to verify it passes**
 
-Run: `npx vitest run tests/pipeline-content.test.ts`
+Run: `bunx vitest run tests/pipeline-content.test.ts`
 Expected: PASS
 
 - [ ] **Step 6: Commit**
@@ -167,7 +167,7 @@ git commit -m "feat(i18n): add translations for pipeline overview and BP326"
 - Modify: `src/components/PipelineShell.astro`
 
 - [ ] **Step 1: Check current build**
-Run: `npm run build` to ensure the project builds before making changes.
+Run: `bun run build` to ensure the project builds before making changes.
 
 - [ ] **Step 2: Replace "coming soon" placeholder with slot**
 In `src/components/PipelineShell.astro`, find this section:
@@ -193,7 +193,7 @@ Replace it entirely with:
 ```
 
 - [ ] **Step 3: Run build to verify no regressions**
-Run: `npm run build`
+Run: `bun run build`
 Expected: Successful build.
 
 - [ ] **Step 4: Commit**
@@ -396,7 +396,7 @@ And modify the links inside the component:
 `href="/pipeline/ribh"` -> `href="/zh/pipeline/ribh"`
 
 - [ ] **Step 3: Run Build**
-Run: `npm run build`
+Run: `bun run build`
 Expected: Successful build.
 
 - [ ] **Step 4: Commit**
@@ -565,7 +565,7 @@ to
 `const lang = 'zh';`
 
 - [ ] **Step 3: Run Build**
-Run: `npm run build`
+Run: `bun run build`
 Expected: Successful build. Check for any missing component import errors.
 
 - [ ] **Step 4: Commit**

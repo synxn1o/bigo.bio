@@ -33,6 +33,7 @@ describe('Navbar Component', () => {
   });
 
   it('should include Pipeline dropdown items', () => {
+    expect(navbarContent).toContain("t('nav.pipeline.overview')");
     expect(navbarContent).toContain("t('nav.pipeline.bp326')");
     expect(navbarContent).toContain("t('nav.pipeline.ribh')");
     expect(navbarContent).toContain("t('nav.pipeline.cd3')");

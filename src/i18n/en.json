@@ -88,6 +88,7 @@
   "pipeline.status": "Status",
   "pipeline.key_facts": "Key Facts",
   "pipeline.preclinical": "Preclinical",
+  "pipeline.discovery": "Discovery",
   "pipeline.target": "Target",
   "pipeline.type": "Molecule Type",
   "pipeline.coming_soon": "Detailed data and results coming soon.",
@@ -133,7 +134,7 @@
   "explore.team.label": "Team",
   "explore.team.title": "Who we are",
   "explore.team.subtitle": "8 researchers, 30+ publications",
-  "pipeline.overview.title": "Platform Pipeline",
+  "pipeline.overview.title": "Bigo Pipeline",
   "pipeline.overview.hero_desc": "Driving the next generation of biotherapeutics. The BIGO BDA platform accelerates discovery to deliver novel molecules with unprecedented speed and confidence.",
   "pipeline.overview.proof.eyebrow": "Early proof points",
   "pipeline.overview.proof.title": "BP326 shows Bigo is building a working loop, not a model-only concept.",
@@ -149,6 +150,5 @@
   "pipeline.bp326.metric.affinity.label": "Level Binding Data",
   "pipeline.bp326.methodology.title": "Methodology",
   "pipeline.bp326.methodology.desc": "Computational design, expression, purification, affinity validation, and data engineering integrated into a technical production workflow. Highly confident outputs achieved through rigorous wet-lab validation and generation scoring.",
-  "pipeline.discovery": "Discovery",
   "pipeline.overview.proof.cta": "View BP326 Detail →"
 }

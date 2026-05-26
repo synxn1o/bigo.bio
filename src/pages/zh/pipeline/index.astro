@@ -12,7 +12,7 @@ const t = getTranslations(lang);
 <Layout title={`${t('pipeline.overview.title')} | BIGO BDA`} lang={lang}>
     <main class="grid-container pipeline-overview">
         <!-- Hero Section -->
-        <section class="hero grid-item outline">
+        <section class="pipeline-hero grid-item">
             <h1 class="pipeline-title">{t('pipeline.overview.title')}</h1>
             <p class="pipeline-desc">{t('pipeline.overview.hero_desc')}</p>
         </section>
@@ -22,7 +22,7 @@ const t = getTranslations(lang);
             <div class="proof-header">
                 <p class="eyebrow">{t('pipeline.overview.proof.eyebrow')}</p>
                 <h2>{t('pipeline.overview.proof.title')}</h2>
-                <a href="/zh/pipeline/bp-326" class="proof-cta outline">{t('pipeline.overview.proof.cta')}</a>
+                <a href="/pipeline/bp-326" class="proof-cta outline">{t('pipeline.overview.proof.cta')}</a>
             </div>
             <div class="proof-metrics">
                 <MetricCard value={t('pipeline.bp326.metric.aa')} label={t('pipeline.bp326.metric.aa.label')} />
@@ -39,7 +39,7 @@ const t = getTranslations(lang);
                     label={t('pipeline.preclinical')}
                     title={t('pipeline.bp326.title')}
                     description={t('pipeline.bp326.desc')}
-                    href="/zh/pipeline/bp-326"
+                    href="/pipeline/bp-326"
                 >
                     <div slot="imageSlot" class="pipeline-image-ph">BP326</div>
                 </ProductCard>
@@ -47,7 +47,7 @@ const t = getTranslations(lang);
                     label={t('pipeline.discovery')}
                     title={t('pipeline.cd3.title')}
                     description={t('pipeline.cd3.desc')}
-                    href="/zh/pipeline/cd3"
+                    href="/pipeline/cd3"
                 >
                     <div slot="imageSlot" class="pipeline-image-ph">CD3+</div>
                 </ProductCard>
@@ -55,7 +55,7 @@ const t = getTranslations(lang);
                     label={t('pipeline.discovery')}
                     title={t('pipeline.ribh.title')}
                     description={t('pipeline.ribh.desc')}
-                    href="/zh/pipeline/ribh"
+                    href="/pipeline/ribh"
                 >
                     <div slot="imageSlot" class="pipeline-image-ph">RibH</div>
                 </ProductCard>
@@ -70,27 +70,27 @@ const t = getTranslations(lang);
         padding-bottom: 6rem;
         gap: 4rem var(--grid-gutter);
     }
-    .hero {
-        padding: 4rem;
-        background: var(--color-grey-100);
-        text-align: center;
+
+    .pipeline-hero {
         display: flex;
         flex-direction: column;
-        align-items: center;
         gap: 1.5rem;
     }
+
     .pipeline-title {
-        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-size: clamp(3rem, 8vw, 5rem);
         font-weight: 800;
+        line-height: 1;
         text-transform: uppercase;
-        margin: 0;
     }
+
     .pipeline-desc {
-        font-size: 1.25rem;
-        color: var(--color-grey-800);
-        max-width: 800px;
-        line-height: 1.6;
+        font-size: clamp(1.25rem, 3vw, 1.5rem);
+        color: var(--color-grey-700);
+        max-width: 700px;
+        line-height: 1.5;
     }
+
     .proof-section {
         padding: 4rem;
         background: var(--color-white);
@@ -161,7 +161,7 @@ const t = getTranslations(lang);
         .proof-metrics {
             grid-template-columns: 1fr;
         }
-        .hero, .proof-section {
+        .proof-section {
             padding: 2rem;
         }
     }

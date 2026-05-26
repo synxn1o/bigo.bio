@@ -1,8 +1,8 @@
 {
   "site.title": "比构生物科技",
   "hero.title_part1": "",
-  "hero.title_highlight": "下一次工业革命",
-  "hero.title_part2": "\n将由蛋白质书写。",
+  "hero.title_highlight": "下一次工业革命<br>",
+  "hero.title_part2": "将由蛋白质书写。",
   "hero.subtitle": "比构(Bigo)生物科技为未来构建设计基础设施。",
   "hero.cta.start": "立即开始",
   "hero.cta.learn": "了解更多",
@@ -88,6 +88,7 @@
   "pipeline.status": "状态",
   "pipeline.key_facts": "关键信息",
   "pipeline.preclinical": "临床前",
+  "pipeline.discovery": "早期发现",
   "pipeline.target": "靶点",
   "pipeline.type": "分子类型",
   "pipeline.coming_soon": "详细数据和结果即将推出。",
@@ -149,6 +150,5 @@
   "pipeline.bp326.metric.affinity.label": "级结合数据",
   "pipeline.bp326.methodology.title": "方法论",
   "pipeline.bp326.methodology.desc": "计算设计、表达、纯化、亲和力验证与数据工程集成于高标准技术生产工作流中。通过严谨的湿实验验证与生成评分，实现高置信度的交付。",
-  "pipeline.discovery": "早期发现",
   "pipeline.overview.proof.cta": "查看 BP326 详情 →"
 }

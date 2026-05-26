@@ -21,6 +21,15 @@ const t = getTranslations(lang);
 </div>
 
 <div class="pipeline-body grid-item">
+
+    <div class="pipeline-main">
+        <slot>
+            <div class="coming-soon outline">
+                <p>{t('pipeline.coming_soon')}</p>
+            </div>
+        </slot>
+    </div>
+
     <aside class="key-facts outline">
         <h2 class="facts-heading">{t('pipeline.key_facts')}</h2>
         <div class="fact">
@@ -37,13 +46,6 @@ const t = getTranslations(lang);
         </div>
     </aside>
 
-    <div class="pipeline-main">
-        <slot>
-            <div class="coming-soon outline">
-                <p>{t('pipeline.coming_soon')}</p>
-            </div>
-        </slot>
-    </div>
 </div>
 
 <style>
@@ -79,7 +81,7 @@ const t = getTranslations(lang);
 
     .pipeline-body {
         display: grid;
-        grid-template-columns: 300px 1fr;
+        grid-template-columns: 1fr 300px;
         gap: var(--grid-gutter);
     }
 
