@@ -32,6 +32,7 @@ const t = getTranslations(lang);
                     label={t('nav.pipeline')}
                     lang={lang}
                     items={[
+                        { href: lang === 'en' ? '/pipeline' : '/zh/pipeline', label: t('nav.pipeline.overview'), description: t('nav.pipeline.overview.desc') },
                         { href: lang === 'en' ? '/pipeline/bp-326' : '/zh/pipeline/bp-326', label: t('nav.pipeline.bp326'), description: t('nav.pipeline.bp326.desc') },
                         { href: lang === 'en' ? '/pipeline/ribh' : '/zh/pipeline/ribh', label: t('nav.pipeline.ribh'), description: t('nav.pipeline.ribh.desc') },
                         { href: lang === 'en' ? '/pipeline/cd3' : '/zh/pipeline/cd3', label: t('nav.pipeline.cd3'), description: t('nav.pipeline.cd3.desc') },
@@ -62,6 +63,7 @@ const t = getTranslations(lang);
         <NavLink href={lang === 'en' ? '/bda' : '/zh/bda'} class="mobile-nav-item">{t('nav.bda.overview')}</NavLink>
         <NavLink href={lang === 'en' ? '/bda/workflow' : '/zh/bda/workflow'} class="mobile-nav-item">{t('nav.bda.workflow')}</NavLink>
         <div class="mobile-section-label">{t('nav.pipeline')}</div>
+        <NavLink href={lang === 'en' ? '/pipeline' : '/zh/pipeline'} class="mobile-nav-item">{t('nav.pipeline.overview')}</NavLink>
         <NavLink href={lang === 'en' ? '/pipeline/bp-326' : '/zh/pipeline/bp-326'} class="mobile-nav-item">{t('nav.pipeline.bp326')}</NavLink>
         <NavLink href={lang === 'en' ? '/pipeline/ribh' : '/zh/pipeline/ribh'} class="mobile-nav-item">{t('nav.pipeline.ribh')}</NavLink>
         <NavLink href={lang === 'en' ? '/pipeline/cd3' : '/zh/pipeline/cd3'} class="mobile-nav-item">{t('nav.pipeline.cd3')}</NavLink>
