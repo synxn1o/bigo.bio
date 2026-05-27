@@ -42,7 +42,7 @@ html, body {
 
 /* Utility Classes */
 .outline {
-  border: 1px solid var(--color-black);
+  border: 2px solid var(--color-black);
 }
 
 .bg-swiss-red { background-color: var(--color-swiss-red); color: var(--color-white); }
