@@ -24,7 +24,7 @@ describe('BDA Overview Pages', () => {
     });
 
     it('should use ApplicationCard component', () => {
-      expect(content).toContain("import ApplicationCard from '../../components/ApplicationCard.astro'");
+      expect(content).toContain("import ApplicationCard from '../../components/cards/ApplicationCard.astro'");
       expect(content).toContain("<ApplicationCard");
     });
 
@@ -53,7 +53,7 @@ describe('BDA Overview Pages', () => {
     });
 
     it('should use ApplicationCard component', () => {
-      expect(content).toContain("import ApplicationCard from '../../../components/ApplicationCard.astro'");
+      expect(content).toContain("import ApplicationCard from '../../../components/cards/ApplicationCard.astro'");
       expect(content).toContain("<ApplicationCard");
     });
 
