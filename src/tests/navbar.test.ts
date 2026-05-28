@@ -17,26 +17,15 @@ describe('Navbar Component', () => {
   });
 
   it('should include the integrated language toggle', () => {
-    expect(navbarContent).toContain('import LanguageToggle from \'./ui/LanguageToggle.astro\'');
+    expect(navbarContent).toContain('import LanguageToggle from \'../ui/LanguageToggle.astro\'');
     expect(navbarContent).toContain('<LanguageToggle lang={lang} />');
   });
 
-  it('should import and use DropdownNav for BDA+ and Pipeline', () => {
+  it('should import and use DropdownNav and navigation config', () => {
     expect(navbarContent).toContain('import DropdownNav from \'./DropdownNav.astro\'');
-    expect(navbarContent).toContain("t('nav.bda')");
-    expect(navbarContent).toContain("t('nav.pipeline')");
-  });
-
-  it('should include BDA+ dropdown items', () => {
-    expect(navbarContent).toContain("t('nav.bda.overview')");
-    expect(navbarContent).toContain("t('nav.bda.workflow')");
-  });
-
-  it('should include Pipeline dropdown items', () => {
-    expect(navbarContent).toContain("t('nav.pipeline.overview')");
-    expect(navbarContent).toContain("t('nav.pipeline.bp326')");
-    expect(navbarContent).toContain("t('nav.pipeline.ribh')");
-    expect(navbarContent).toContain("t('nav.pipeline.cd3')");
+    expect(navbarContent).toContain('import { getNavigation, getStandaloneLinks }');
+    expect(navbarContent).toContain('navSections.map');
+    expect(navbarContent).toContain('standalone.map');
   });
 
   it('should have the logo defined', () => {
