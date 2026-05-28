@@ -19,7 +19,7 @@ describe('BDA Overview Pages', () => {
     });
 
     it('should use MetricCard component', () => {
-      expect(content).toContain("import MetricCard from '../../components/MetricCard.astro'");
+      expect(content).toContain("import MetricCard from '../../components/ui/MetricCard.astro'");
       expect(content).toContain("<MetricCard");
     });
 
@@ -48,7 +48,7 @@ describe('BDA Overview Pages', () => {
     });
 
     it('should use MetricCard component', () => {
-      expect(content).toContain("import MetricCard from '../../../components/MetricCard.astro'");
+      expect(content).toContain("import MetricCard from '../../../components/ui/MetricCard.astro'");
       expect(content).toContain("<MetricCard");
     });
 

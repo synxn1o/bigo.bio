@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 describe('NavLink Component', () => {
-  const navLinkPath = path.resolve(__dirname, '../../components/NavLink.astro');
+  const navLinkPath = path.resolve(__dirname, '../../components/ui/NavLink.astro');
   
   it('should exist', () => {
     expect(fs.existsSync(navLinkPath)).toBe(true);

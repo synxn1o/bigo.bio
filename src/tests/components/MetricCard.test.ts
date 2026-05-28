@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 describe('MetricCard Component', () => {
-  const componentPath = path.resolve(__dirname, '../../components/MetricCard.astro');
+  const componentPath = path.resolve(__dirname, '../../components/ui/MetricCard.astro');
 
   it('should exist', () => {
     expect(fs.existsSync(componentPath)).toBe(true);

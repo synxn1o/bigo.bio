@@ -26,7 +26,7 @@ describe('Hero Component', () => {
 
   it('should use Button component', () => {
     const content = fs.readFileSync(heroPath, 'utf8');
-    expect(content).toContain("import Button from './Button.astro';");
+    expect(content).toContain("import Button from './ui/Button.astro';");
     expect(content).toContain('<Button variant="primary"');
     expect(content).toContain('<Button variant="outline"');
   });

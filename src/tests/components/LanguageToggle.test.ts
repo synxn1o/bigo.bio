@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 describe('LanguageToggle Component', () => {
-  const componentPath = path.resolve(__dirname, '../../components/LanguageToggle.astro');
+  const componentPath = path.resolve(__dirname, '../../components/ui/LanguageToggle.astro');
   
   it('should exist', () => {
     expect(fs.existsSync(componentPath)).toBe(true);

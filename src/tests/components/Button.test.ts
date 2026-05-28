@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 describe('Button Component', () => {
-  const buttonPath = path.resolve(__dirname, '../../components/Button.astro');
+  const buttonPath = path.resolve(__dirname, '../../components/ui/Button.astro');
   
   it('should exist', () => {
     expect(fs.existsSync(buttonPath)).toBe(true);
