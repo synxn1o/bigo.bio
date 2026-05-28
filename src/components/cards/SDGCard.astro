@@ -7,7 +7,7 @@ interface Props {
 
 const { label, title, description } = Astro.props;
 ---
-<div class="sdg-card outline">
+<div class="sdg-card card-base outline">
   <span class="label">{label}</span>
   <h3>{title}</h3>
   <p class="scroll-reveal">{description}</p>
@@ -15,12 +15,6 @@ const { label, title, description } = Astro.props;
 
 <style>
   .sdg-card {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    background: var(--color-white);
-    border: 1px solid var(--color-black, #000);
     border-radius: 0;
   }
 
@@ -29,18 +23,18 @@ const { label, title, description } = Astro.props;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--color-grey-600, #666);
+    color: var(--color-grey-600);
   }
 
   .sdg-card h3 {
     font-size: 1.5rem;
     font-weight: 800;
-    color: var(--color-black, #000);
+    color: var(--color-black);
     margin: 0;
   }
 
   .sdg-card p {
-    color: var(--color-grey-600, #666);
+    color: var(--color-grey-600);
     line-height: 1.6;
     margin: 0;
   }
