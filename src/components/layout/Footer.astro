@@ -1,6 +1,7 @@
 ---
-import { getTranslations } from '../i18n/utils';
-import NavLink from './NavLink.astro';
+import { getTranslations } from '../../i18n/utils';
+import { getFooterLinks } from '../../data/navigation';
+import NavLink from '../ui/NavLink.astro';
 
 interface Props {
     lang: 'en' | 'zh';
@@ -8,6 +9,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = getTranslations(lang);
+const footerLinksData = getFooterLinks(lang);
 ---
 
 <footer class="footer outline">
@@ -19,9 +21,9 @@ const t = getTranslations(lang);
             </div>
             
             <div class="footer-links">
-                <NavLink href={lang === 'en' ? '/about' : '/zh/about'}>{t('nav.about')}</NavLink>
-                <NavLink href="#">{t('nav.blog')}</NavLink>
-                <NavLink href={lang === 'en' ? '/bda' : '/zh/bda'}>{t('nav.bda')}</NavLink>
+                {footerLinksData.map((link) => (
+                    <NavLink href={link.href}>{t(link.labelKey)}</NavLink>
+                ))}
             </div>
         </div>
     </div>

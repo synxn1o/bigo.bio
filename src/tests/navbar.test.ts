@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 describe('Navbar Component', () => {
-  const navbarPath = path.resolve(__dirname, '../components/Navbar.astro');
+  const navbarPath = path.resolve(__dirname, '../components/layout/Navbar.astro');
   const navbarContent = fs.readFileSync(navbarPath, 'utf8');
 
   it('should implement the fixed floating position', () => {
@@ -17,7 +17,7 @@ describe('Navbar Component', () => {
   });
 
   it('should include the integrated language toggle', () => {
-    expect(navbarContent).toContain('import LanguageToggle from \'./LanguageToggle.astro\'');
+    expect(navbarContent).toContain('import LanguageToggle from \'./ui/LanguageToggle.astro\'');
     expect(navbarContent).toContain('<LanguageToggle lang={lang} />');
   });
 
