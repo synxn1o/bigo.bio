@@ -1,7 +1,8 @@
 ---
-import { getTranslations } from '../i18n/utils';
-import NavLink from './NavLink.astro';
-import LanguageToggle from './LanguageToggle.astro';
+import { getTranslations } from '../../i18n/utils';
+import { getNavigation, getStandaloneLinks } from '../../data/navigation';
+import NavLink from '../ui/NavLink.astro';
+import LanguageToggle from '../ui/LanguageToggle.astro';
 import DropdownNav from './DropdownNav.astro';
 
 interface Props {
@@ -10,6 +11,8 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = getTranslations(lang);
+const navSections = getNavigation(lang);
+const standalone = getStandaloneLinks(lang);
 ---
 
 <nav class="navbar outline">
@@ -20,26 +23,20 @@ const t = getTranslations(lang);
             </div>
             
             <div class="nav-links desktop-only">
-                <DropdownNav
-                    label={t('nav.bda')}
-                    lang={lang}
-                    items={[
-                        { href: lang === 'en' ? '/bda' : '/zh/bda', label: t('nav.bda.overview'), description: t('nav.bda.overview.desc') },
-                        { href: lang === 'en' ? '/bda/workflow' : '/zh/bda/workflow', label: t('nav.bda.workflow'), description: t('nav.bda.workflow.desc') },
-                    ]}
-                />
-                <DropdownNav
-                    label={t('nav.pipeline')}
-                    lang={lang}
-                    items={[
-                        { href: lang === 'en' ? '/pipeline' : '/zh/pipeline', label: t('nav.pipeline.overview'), description: t('nav.pipeline.overview.desc') },
-                        { href: lang === 'en' ? '/pipeline/bp-326' : '/zh/pipeline/bp-326', label: t('nav.pipeline.bp326'), description: t('nav.pipeline.bp326.desc') },
-                        { href: lang === 'en' ? '/pipeline/ribh' : '/zh/pipeline/ribh', label: t('nav.pipeline.ribh'), description: t('nav.pipeline.ribh.desc') },
-                        { href: lang === 'en' ? '/pipeline/cd3' : '/zh/pipeline/cd3', label: t('nav.pipeline.cd3'), description: t('nav.pipeline.cd3.desc') },
-                    ]}
-                />
-                <NavLink href={lang === 'en' ? '/about' : '/zh/about'}>{t('nav.about')}</NavLink>
-                <NavLink href="#">{t('nav.blog')}</NavLink>
+                {navSections.map((section) => (
+                    <DropdownNav
+                        label={t(section.labelKey)}
+                        lang={lang}
+                        items={section.items.map((item) => ({
+                            href: item.href,
+                            label: t(item.labelKey),
+                            description: item.descKey ? t(item.descKey) : undefined,
+                        }))}
+                    />
+                ))}
+                {standalone.map((link) => (
+                    <NavLink href={link.href}>{t(link.labelKey)}</NavLink>
+                ))}
             </div>
 
             <div class="nav-actions">
@@ -59,17 +56,18 @@ const t = getTranslations(lang);
 <div id="mobile-panel" class="outline">
     <button id="close-panel" type="button" aria-label="Close Menu">✕</button>
     <div class="mobile-links">
-        <div class="mobile-section-label">{t('nav.bda')}</div>
-        <NavLink href={lang === 'en' ? '/bda' : '/zh/bda'} class="mobile-nav-item">{t('nav.bda.overview')}</NavLink>
-        <NavLink href={lang === 'en' ? '/bda/workflow' : '/zh/bda/workflow'} class="mobile-nav-item">{t('nav.bda.workflow')}</NavLink>
-        <div class="mobile-section-label">{t('nav.pipeline')}</div>
-        <NavLink href={lang === 'en' ? '/pipeline' : '/zh/pipeline'} class="mobile-nav-item">{t('nav.pipeline.overview')}</NavLink>
-        <NavLink href={lang === 'en' ? '/pipeline/bp-326' : '/zh/pipeline/bp-326'} class="mobile-nav-item">{t('nav.pipeline.bp326')}</NavLink>
-        <NavLink href={lang === 'en' ? '/pipeline/ribh' : '/zh/pipeline/ribh'} class="mobile-nav-item">{t('nav.pipeline.ribh')}</NavLink>
-        <NavLink href={lang === 'en' ? '/pipeline/cd3' : '/zh/pipeline/cd3'} class="mobile-nav-item">{t('nav.pipeline.cd3')}</NavLink>
+        {navSections.map((section) => (
+            <>
+                <div class="mobile-section-label">{t(section.labelKey)}</div>
+                {section.items.map((item) => (
+                    <NavLink href={item.href} class="mobile-nav-item">{t(item.labelKey)}</NavLink>
+                ))}
+            </>
+        ))}
         <div class="mobile-section-label"> </div>
-        <NavLink href={lang === 'en' ? '/about' : '/zh/about'} class="mobile-nav-item">{t('nav.about')}</NavLink>
-        <NavLink href="#" class="mobile-nav-item">{t('nav.blog')}</NavLink>
+        {standalone.map((link) => (
+            <NavLink href={link.href} class="mobile-nav-item">{t(link.labelKey)}</NavLink>
+        ))}
     </div>
 </div>
 
@@ -83,12 +81,13 @@ const t = getTranslations(lang);
         background-color: rgba(255, 255, 255, 0.8);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
-        z-index: 1000;
+        z-index: var(--z-index-navbar);
         display: flex;
         align-items: center;
         border-top: none;
         border-left: none;
         border-right: none;
+        border-bottom: 1px;
     }
 
     .nav-content {
@@ -150,7 +149,7 @@ const t = getTranslations(lang);
         opacity: 0;
         visibility: hidden;
         transition: all 0.3s ease;
-        z-index: 1500;
+        z-index: var(--z-index-overlay);
     }
 
     #nav-overlay.open {
@@ -165,7 +164,7 @@ const t = getTranslations(lang);
         width: 300px;
         height: 100vh;
         background-color: var(--color-white);
-        z-index: 2000;
+        z-index: var(--z-index-mobile-panel);
         transition: right 0.3s ease-in-out;
         padding: 2rem;
         display: flex;
@@ -173,6 +172,7 @@ const t = getTranslations(lang);
         border-top: none;
         border-bottom: none;
         border-right: none;
+        border-left: 1px solid var(--color-black);
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
     }

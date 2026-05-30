@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 describe('DropdownNav Component', () => {
-  const componentPath = path.resolve(__dirname, '../../components/DropdownNav.astro');
+  const componentPath = path.resolve(__dirname, '../../components/layout/DropdownNav.astro');
 
   it('should exist', () => {
     expect(fs.existsSync(componentPath)).toBe(true);

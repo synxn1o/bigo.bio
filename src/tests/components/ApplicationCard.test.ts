@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 describe('ApplicationCard Component', () => {
-  const componentPath = path.resolve(__dirname, '../../components/ApplicationCard.astro');
+  const componentPath = path.resolve(__dirname, '../../components/cards/ApplicationCard.astro');
 
   it('should exist', () => {
     expect(fs.existsSync(componentPath)).toBe(true);

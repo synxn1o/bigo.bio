@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 describe('PipelineShell Component', () => {
-  const componentPath = path.resolve(__dirname, '../../components/PipelineShell.astro');
+  const componentPath = path.resolve(__dirname, '../../components/layout/PipelineShell.astro');
 
   it('should exist', () => {
     expect(fs.existsSync(componentPath)).toBe(true);

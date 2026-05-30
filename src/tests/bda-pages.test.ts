@@ -19,12 +19,12 @@ describe('BDA Overview Pages', () => {
     });
 
     it('should use MetricCard component', () => {
-      expect(content).toContain("import MetricCard from '../../components/MetricCard.astro'");
+      expect(content).toContain("import MetricCard from '../../components/ui/MetricCard.astro'");
       expect(content).toContain("<MetricCard");
     });
 
     it('should use ApplicationCard component', () => {
-      expect(content).toContain("import ApplicationCard from '../../components/ApplicationCard.astro'");
+      expect(content).toContain("import ApplicationCard from '../../components/cards/ApplicationCard.astro'");
       expect(content).toContain("<ApplicationCard");
     });
 
@@ -48,12 +48,12 @@ describe('BDA Overview Pages', () => {
     });
 
     it('should use MetricCard component', () => {
-      expect(content).toContain("import MetricCard from '../../../components/MetricCard.astro'");
+      expect(content).toContain("import MetricCard from '../../../components/ui/MetricCard.astro'");
       expect(content).toContain("<MetricCard");
     });
 
     it('should use ApplicationCard component', () => {
-      expect(content).toContain("import ApplicationCard from '../../../components/ApplicationCard.astro'");
+      expect(content).toContain("import ApplicationCard from '../../../components/cards/ApplicationCard.astro'");
       expect(content).toContain("<ApplicationCard");
     });
 

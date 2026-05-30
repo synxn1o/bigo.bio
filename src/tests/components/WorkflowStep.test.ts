@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 describe('WorkflowStep Component', () => {
-  const componentPath = path.resolve(__dirname, '../../components/WorkflowStep.astro');
+  const componentPath = path.resolve(__dirname, '../../components/features/WorkflowStep.astro');
 
   it('should exist', () => {
     expect(fs.existsSync(componentPath)).toBe(true);
@@ -24,7 +24,7 @@ describe('WorkflowStep Component', () => {
 
   it('should display the tool name in monospace style', () => {
     const content = fs.readFileSync(componentPath, 'utf8');
-    expect(content).toContain('monospace');
+    expect(content).toContain('font-family-mono');
   });
 
   it('should use scoped styles', () => {
