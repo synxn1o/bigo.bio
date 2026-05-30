@@ -23,13 +23,13 @@
 }
 
 /* Grayscale image hover effect — used by ProductCard, TeamMember */
-.hover-grayscale :global(img) {
+.hover-grayscale img {
   filter: grayscale(100%);
   transition: filter 0.4s ease-in-out;
 }
 
-.hover-grayscale:hover :global(img),
-.hover-grayscale:focus :global(img) {
+.hover-grayscale:hover img,
+.hover-grayscale:focus img {
   filter: grayscale(0%);
 }
 

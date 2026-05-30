@@ -10,7 +10,7 @@ const { label, title, description, href } = Astro.props;
 ---
 <a href={href} class="product-card grid-item outline">
   <div class="content-side">
-    <span class="label">{label}</span>
+    <span class="label label-text">{label}</span>
     <h3>{title}</h3>
     <p class="scroll-reveal">{description}</p>
   </div>
@@ -30,8 +30,6 @@ const { label, title, description, href } = Astro.props;
     grid-template-rows: minmax(300px, auto);
     text-decoration: none;
     color: inherit;
-    border: 1px solid var(--color-black);
-    border-radius: 0;
     background: var(--color-white);
     transition: all 0.2s ease-in-out;
     position: relative;
@@ -40,7 +38,7 @@ const { label, title, description, href } = Astro.props;
 
   .product-card:hover,
   .product-card:focus {
-    z-index: 10;
+    z-index: var(--z-index-card-hover);
   }
 
   .product-card::after {
@@ -55,7 +53,7 @@ const { label, title, description, href } = Astro.props;
 
   .product-card:hover::after,
   .product-card:focus::after {
-    border-width: 4px;
+    border-width: 2px;
   }
 
   .content-side {
@@ -68,10 +66,6 @@ const { label, title, description, href } = Astro.props;
   }
 
   .label {
-    font-size: 0.875rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
     color: var(--color-swiss-red);
   }
 

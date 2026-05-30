@@ -8,7 +8,7 @@ interface Props {
 const { label, title, description } = Astro.props;
 ---
 <div class="sdg-card card-base outline">
-  <span class="label">{label}</span>
+  <span class="label label-text">{label}</span>
   <h3>{title}</h3>
   <p class="scroll-reveal">{description}</p>
 </div>
@@ -19,10 +19,6 @@ const { label, title, description } = Astro.props;
   }
 
   .label {
-    font-size: 0.875rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
     color: var(--color-grey-600);
   }
 

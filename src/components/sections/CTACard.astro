@@ -8,8 +8,8 @@ interface Props {
 
 const { label, title, subtitle, href } = Astro.props;
 ---
-<a href={href} class="cta-card card-base outline scroll-reveal">
-  <span class="label">{label}</span>
+<a href={href} class="cta-card card-base transition-base outline scroll-reveal">
+  <span class="label label-text">{label}</span>
   <h3>{title}</h3>
   <p>{subtitle}</p>
   <div class="icon-arrow">→</div>
@@ -21,7 +21,6 @@ const { label, title, subtitle, href } = Astro.props;
     text-decoration: none;
     color: inherit;
     position: relative;
-    transition: all 0.2s ease-in-out;
   }
 
   .cta-card:hover,
@@ -31,10 +30,6 @@ const { label, title, subtitle, href } = Astro.props;
   }
 
   .label {
-    font-size: 0.875rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
     color: var(--color-grey-600);
   }
 
